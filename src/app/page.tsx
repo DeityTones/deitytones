@@ -41,13 +41,14 @@ export default function HomePage() {
         <h1 className="text-5xl font-bold text-[#4c4c8e] mb-8 drop-shadow-md">
           Discover the Future of Multi Media
         </h1>
-        <div className="w-full max-w-4xl mb-20">
-                    <Image
+        {/* Adjusted container width to match 25% reduction */}
+        <div className="w-full max-w-3xl mb-20"> 
+          <Image
             src="/t_hero_edit.png"
             alt="T the Pharaoh hero image"
-            width={1024}
-            height={576}
-            className="rounded-lg shadow-2xl"
+            width={768} // Reduced from 1024
+            height={432} // Reduced from 576
+            className="rounded-lg shadow-2xl mx-auto"
             priority
           />
         </div>
@@ -114,7 +115,7 @@ export default function HomePage() {
       </section>
 
       {/* NEW SECTION - Our Services */}
-<section className="relative z-30 bg-[#E5B868] text-gray-900 py-24">
+      <section className="relative z-30 bg-[#E5B868] text-gray-900 py-24">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-16">
           {/* Left Column: Title */}
           <div className="lg:col-span-1 flex items-center justify-center lg:justify-start text-center lg:text-left">
