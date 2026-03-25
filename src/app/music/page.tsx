@@ -6,10 +6,11 @@ import Image from "next/image";
 export default function MusicPage() {
   // We will update these links with your real ones later!
   const streamingPlatforms = [
-    { name: "Spotify", url: "#", color: "bg-[#1DB954]" },
-    { name: "Apple Music", url: "#", color: "bg-[#FA243C]" },
-    { name: "SoundCloud", url: "#", color: "bg-[#FF3300]" },
-    { name: "YouTube", url: "#", color: "bg-[#FF0000]" },
+    { name: "Spotify", url: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We?si=r5_j0RTDQtCZJS7trkMYkQ", color: "bg-[#1DB954]" },
+    { name: "Apple Music", url: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671", color: "bg-[#FA243C]" },
+    { name: "SoundCloud", url: "https://soundcloud.com/t-the-pharaoh", color: "bg-[#FF3300]" },
+    { name: "YouTube", url: "https://www.youtube.com/channel/UCqcICy39GycwORST5cFPodw", color: "bg-[#FF0000]" },
+    { name: "Tidal", url: "https://tidal.com/artist/10140234", color: "bg-[#111111] border border-white/20" },
   ];
 
   return (
@@ -60,14 +61,14 @@ export default function MusicPage() {
           {/* Streaming Links */}
           <div>
             <h2 className="text-3xl font-bold text-center mb-8 text-white">Stream Everywhere</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
               {streamingPlatforms.map((platform) => (
                 <a
                   key={platform.name}
                   href={platform.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${platform.color} text-white p-6 rounded-xl text-center hover:opacity-90 transition-all hover:scale-105 shadow-lg flex items-center justify-center h-24`}
+                  className={`${platform.color} w-full md:w-48 text-white p-6 rounded-xl text-center hover:opacity-90 transition-all hover:scale-105 shadow-lg flex items-center justify-center h-24`}
                 >
                   <h3 className="text-xl font-bold tracking-wide">{platform.name}</h3>
                 </a>
