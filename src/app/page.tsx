@@ -37,7 +37,8 @@ export default function HomePage() {
       <Navbar />
 
       {/* Main Content - Hero Section */}
-      <div className="relative z-10 flex flex-col flex-grow items-center justify-center text-center px-4 pt-16 pb-32">
+            {/* Main Content - Hero Section */}
+      <div className="relative z-10 flex flex-col flex-grow items-center justify-center text-center px-4 pt-48 pb-32">
         <h1 className="text-5xl font-bold text-[#4c4c8e] mb-8 drop-shadow-md">
           Discover the Future of Multi Media
         </h1>
