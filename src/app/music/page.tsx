@@ -9,7 +9,7 @@ export default function MusicPage() {
     { name: "Spotify", url: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We?si=r5_j0RTDQtCZJS7trkMYkQ", color: "bg-[#1DB954]" },
     { name: "Apple Music", url: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671", color: "bg-[#FA243C]" },
     { name: "SoundCloud", url: "https://soundcloud.com/t-the-pharaoh", color: "bg-[#FF3300]" },
-    { name: "YouTube", url: "https://www.youtube.com/channel/UCqcICy39GycwORST5cFPodw", color: "bg-[#FF0000]" },
+    { name: "YouTube", url: "https://www.youtube.com/channel/UCqcICy39GycwORST5cFPodw?sub_confirmation=1", color: "bg-[#FF0000]" },
     { name: "Tidal", url: "https://tidal.com/artist/10140234", color: "bg-[#111111] border border-white/20" },
   ];
 
