@@ -22,6 +22,12 @@ export default function Navbar() {
           <Link href="/music" className="text-white hover:text-[#E5B868] transition-colors">
             MUSIC
           </Link>
+
+          {/* ✅ NEW - Portfolio Link Added Here */}
+          <Link href="/portfolio" className="text-white hover:text-[#E5B868] transition-colors">
+            PORTFOLIO
+          </Link>
+
           <Link href="/contact" className="text-white hover:text-[#E5B868] transition-colors">
             SERVICES
           </Link>
@@ -52,6 +58,12 @@ export default function Navbar() {
           <Link href="/music" onClick={() => setIsOpen(false)} className="text-white text-lg font-medium hover:text-[#E5B868]">
             MUSIC
           </Link>
+
+          {/* ✅ NEW - Portfolio Link Added Here */}
+          <Link href="/portfolio" onClick={() => setIsOpen(false)} className="text-white text-lg font-medium hover:text-[#E5B868]">
+            PORTFOLIO
+          </Link>
+
           <Link href="/contact" onClick={() => setIsOpen(false)} className="text-white text-lg font-medium hover:text-[#E5B868]">
             SERVICES
           </Link>
