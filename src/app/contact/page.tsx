@@ -6,9 +6,30 @@ import Footer from "@/components/Footer";
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    
+    // This gathers the data from the form
+    const formData = new FormData(e.currentTarget);
+    
+    // 👇 YOUR ACCESS KEY GOES RIGHT HERE ON THIS LINE 👇
+    formData.append("access_key", "c618d949-9583-4a44-97d8-76f44d51e2d7");
+
+    try {
+      // This sends the email
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        setSubmitted(true);
+      }
+    } catch (error) {
+      console.log("Error:", error);
+    }
   };
 
   return (
@@ -44,15 +65,15 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label className="block text-sm font-medium mb-2 text-gray-200">Name *</label>
-                    <input type="text" required className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4c4c8e]" placeholder="Your Name" />
+                    <input type="text" name="name" required className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4c4c8e]" placeholder="Your Name" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2 text-gray-200">Email *</label>
-                    <input type="email" required className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4c4c8e]" placeholder="your@email.com" />
+                    <input type="email" name="email" required className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4c4c8e]" placeholder="your@email.com" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2 text-gray-200">Service Type</label>
-                    <select className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#4c4c8e] appearance-none">
+                    <select name="service" className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#4c4c8e] appearance-none">
                       <option value="audio" className="text-black">Audio Production</option>
                       <option value="video" className="text-black">Video Production</option>
                       <option value="social" className="text-black">Social Media Content</option>
@@ -60,7 +81,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2 text-gray-200">Message</label>
-                    <textarea rows={4} className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4c4c8e]" placeholder="Tell us about your project..." />
+                    <textarea name="message" rows={4} className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4c4c8e]" placeholder="Tell us about your project..." />
                   </div>
                   <button type="submit" className="w-full bg-[#E5B868] text-black font-bold py-4 rounded-lg hover:bg-[#d4a756] transition-colors text-lg mt-4">
                     Submit Inquiry
