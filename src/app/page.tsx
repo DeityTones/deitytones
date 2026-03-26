@@ -1,17 +1,17 @@
+"use client"
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { useState } from "react";
 
 const services = [
   {
     title: "Audio (Music & Podcasts)",
-    price: "$60.00",
+    price: "\$60.00",
     description: "Recording, Engineering, Mixing, Mastering.",
     imageUrl: "/service1.png",
   },
   {
     title: "Video Editing",
-    price: "$45.00",
+    price: "\$45.00",
     description: "High quality video editing for music videos, YouTube videos, vlogs, short films and movies, and content.",
     imageUrl: "/service2.png",
   },
@@ -26,36 +26,30 @@ const services = [
 export default function HomePage() {
   return (
     <main className="relative flex flex-col min-h-screen text-white overflow-hidden">
-      {/* Background Image Container */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/Ancient_Egypt.png')" }}
-      >
-        <div className="absolute inset-0 bg-black/5"></div>
-      </div>
 
-      <Navbar />
-
-      {/* Main Content - Hero Section */}
-            {/* Main Content - Hero Section */}
-      <div className="relative z-10 flex flex-col flex-grow items-center justify-center text-center px-4 pt-48 pb-32">
+      {/* ================================
+          HERO SECTION
+          ================================ */}
+      <div className="relative z-10 flex flex-col flex-grow items-center 
+                      justify-center text-center px-4 pt-48 pb-32">
         <h1 className="text-5xl font-bold text-[#4c4c8e] mb-8 drop-shadow-md">
           Discover the Future of Multi Media
         </h1>
-        {/* Adjusted container width to match 25% reduction */}
-        <div className="w-full max-w-3xl mb-20"> 
+        <div className="w-full max-w-3xl mb-20">
           <Image
             src="/t_hero_edit.png"
             alt="T the Pharaoh hero image"
-            width={768} // Reduced from 1024
-            height={432} // Reduced from 576
+            width={768}
+            height={432}
             className="rounded-lg shadow-2xl mx-auto"
             priority
           />
         </div>
       </div>
 
-      {/* Listen Up and Sound Content Section */}
+      {/* ================================
+          LISTEN UP MARQUEE SECTION
+          ================================ */}
       <section className="relative z-20 w-full bg-[#E5DDE9] pb-16 pt-16 -mt-32">
         <div className="absolute top-0 left-0 w-full h-24 overflow-hidden -mt-24 pointer-events-none">
           <svg
@@ -70,7 +64,8 @@ export default function HomePage() {
             ></path>
           </svg>
         </div>
- 
+
+        {/* Marquee */}
         <div className="overflow-hidden whitespace-nowrap py-4 mb-8">
           <div className="animate-[marquee_25s_linear_infinite] inline-block">
             <span className="text-7xl md:text-8xl font-bold text-[#4c4c8e] tracking-tight">
@@ -82,7 +77,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:space-x-12 px-6 text-gray-800">
+        {/* Story + SoundCloud */}
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row 
+                        items-start md:space-x-12 px-6 text-gray-800">
           <div className="md:w-1/2 mb-8 md:mb-0 text-lg leading-relaxed">
             <p className="max-w-md">
               It all begins with an idea. Maybe you want to launch a business.
@@ -102,11 +99,16 @@ export default function HomePage() {
               className="max-w-md"
             ></iframe>
             <div
-              style={{ fontSize: "10px", color: "#cccccc", textOverflow: "ellipsis" }}
+              style={{ fontSize: "10px", color: "#cccccc", 
+                       textOverflow: "ellipsis" }}
               className="max-w-md text-gray-500"
             >
-              <a href="#" style={{ color: "#cccccc", textDecoration: "none" }}>Aoki</a> · 
-              <a href="#" style={{ color: "#cccccc", textDecoration: "none" }}>Sample Track</a>
+              <a href="#" style={{ color: "#cccccc", textDecoration: "none" }}>
+                Aoki
+              </a> ·
+              <a href="#" style={{ color: "#cccccc", textDecoration: "none" }}>
+                Sample Track
+              </a>
             </div>
             <a href="#" className="text-sm text-gray-600 hover:underline mt-4">
               Privacy policy
@@ -115,11 +117,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* NEW SECTION - Our Services */}
+      {/* ================================
+          OUR SERVICES SECTION
+          ================================ */}
       <section className="relative z-30 bg-[#E5B868] text-gray-900 py-24">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-16">
+
           {/* Left Column: Title */}
-          <div className="lg:col-span-1 flex items-center justify-center lg:justify-start text-center lg:text-left">
+          <div className="lg:col-span-1 flex items-center justify-center 
+                          lg:justify-start text-center lg:text-left">
             <h2 className="text-5xl font-serif">Our Services</h2>
           </div>
 
@@ -147,7 +153,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Footer/>
     </main>
   );
 }
