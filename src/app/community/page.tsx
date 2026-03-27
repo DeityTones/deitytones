@@ -117,8 +117,8 @@ export default function CommunityPage() {
             <p className="text-white/80 text-lg leading-relaxed">
               This is more than music. This is a world built 
               for those who feel everything deeply. Welcome to 
-              the Pharaoh's Odyssey — where every melody tells 
-              a story and every story finds its people.
+              my domain...welcome home — where melodies tells 
+              a story, and every story finds its person.
             </p>
           </div>
 
