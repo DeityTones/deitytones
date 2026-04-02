@@ -511,7 +511,7 @@ export default function PortfolioPage() {
                     alt={selectedItem.title}
                     width={800}
                     height={600}
-                    className="w-full object-cover"
+                    className="w-full h-auto object-cover"
                   />
                 </div>
               )}
