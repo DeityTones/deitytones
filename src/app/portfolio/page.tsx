@@ -274,10 +274,11 @@ export default function PortfolioPage() {
                 <div className="aspect-video bg-black/60
                                 relative overflow-hidden">
                   {item.image ? (
-                    <Image
+                   <Image
                       src={item.image}
                       alt={item.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover object-top
                                  group-hover:scale-110
                                  transition-transform

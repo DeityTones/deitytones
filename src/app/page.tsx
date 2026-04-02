@@ -34,7 +34,7 @@ export default function HomePage() {
             alt="T the Pharaoh hero image"
             width={768}
             height={432}
-            className="rounded-lg shadow-2xl mx-auto"
+            className="rounded-lg shadow-2xl mx-auto w-full h-auto"
             priority
           />
         </div>
