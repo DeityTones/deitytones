@@ -7,23 +7,21 @@
 // Cover art goes in: /public/music/covers/
 //
 // HOW TO ADD A NEW TRACK:
-// 1. Drop your .mp3 snippet into /public/music/audio/
+// 1. Drop your audio file into /public/music/audio/
 // 2. Drop cover art into /public/music/covers/ (optional)
 // 3. Copy a track object below and update the fields
 // 4. Save the file — it auto-appears on the Music page
 // ============================================
 
-// This defines the SHAPE of a track
-// Think of it like a template that every track must follow
 export type Track = {
   id: number
   title: string
   artist: string
-  featuredArtists?: string[]    // optional
-  albumArt?: string             // optional
+  featuredArtists?: string[]
+  albumArt?: string
   audioSrc: string
   releaseYear: string
-  streamingLinks?: {            // optional
+  streamingLinks?: {
     spotify?: string
     appleMusic?: string
     soundcloud?: string
@@ -32,60 +30,51 @@ export type Track = {
   }
 }
 
-// ============================================
-// 📌 YOUR TRACKS
-// Add, remove, or edit tracks in this array
-// ============================================
 export const tracks: Track[] = [
   {
     id: 1,
-    title: "Operation Ocean",
+    title: "Wish You Well",
     artist: "T the Pharaoh",
-    albumArt: "/music/covers/operation_ocean.jpg",
-    audioSrc: "/music/audio/operation_ocean.mp3",
-    releaseYear: "2025",
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/wish_you_well.wav",
+    releaseYear: "2024",
     streamingLinks: {
       spotify:
         "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
       appleMusic:
         "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
       soundcloud: "https://soundcloud.com/t-the-pharaoh",
-      youtube: "https://www.youtube.com/watch?v=JVqeH0WlvMI",
     },
   },
   {
     id: 2,
-    title: "Different Cities",
+    title: "Weekend In Florida",
     artist: "T the Pharaoh",
-    // No albumArt here — player will show "Coming Soon"
-    audioSrc: "/music/audio/different_cities.mp3",
-    releaseYear: "2025",
+    featuredArtists: ["DirtyfaceHarry"],
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/weekend_in_florida.wav",
+    releaseYear: "2024",
     streamingLinks: {
       spotify:
         "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
-      youtube: "https://www.youtube.com/watch?v=tGOAGo9ja08",
+      appleMusic:
+        "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
     },
   },
-
-  // ============================================
-  // 📌 COPY THIS TEMPLATE TO ADD A NEW TRACK
-  // Uncomment it (remove the /* and */) and fill in
-  // ============================================
-  /*
   {
     id: 3,
-    title: "Your Track Name",
+    title: "Roxxy",
     artist: "T the Pharaoh",
-    featuredArtists: ["Featured Artist Name"],
-    albumArt: "/music/covers/your_cover.jpg",
-    audioSrc: "/music/audio/your_track.mp3",
-    releaseYear: "2025",
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/roxxy.wav",
+    releaseYear: "2024",
     streamingLinks: {
-      spotify: "https://...",
-      appleMusic: "https://...",
-      soundcloud: "https://...",
-      youtube: "https://...",
+      spotify:
+        "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic:
+        "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
     },
   },
-  */
 ]
