@@ -1,16 +1,7 @@
 // ============================================
 // 📌 SONG DATABASE
-// This is the ONLY file you need to edit
-// when adding new music to your site
-//
 // Audio files go in: /public/music/audio/
 // Cover art goes in: /public/music/covers/
-//
-// HOW TO ADD A NEW TRACK:
-// 1. Drop your audio file into /public/music/audio/
-// 2. Drop cover art into /public/music/covers/ (optional)
-// 3. Copy a track object below and update the fields
-// 4. Save the file — it auto-appears on the Music page
 // ============================================
 
 export type Track = {
@@ -39,10 +30,8 @@ export const tracks: Track[] = [
     audioSrc: "/music/audio/wish_you_well.wav",
     releaseYear: "2024",
     streamingLinks: {
-      spotify:
-        "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
-      appleMusic:
-        "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
       soundcloud: "https://soundcloud.com/t-the-pharaoh",
     },
   },
@@ -55,10 +44,8 @@ export const tracks: Track[] = [
     audioSrc: "/music/audio/weekend_in_florida.wav",
     releaseYear: "2024",
     streamingLinks: {
-      spotify:
-        "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
-      appleMusic:
-        "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
       soundcloud: "https://soundcloud.com/t-the-pharaoh",
     },
   },
@@ -70,10 +57,164 @@ export const tracks: Track[] = [
     audioSrc: "/music/audio/roxxy.wav",
     releaseYear: "2024",
     streamingLinks: {
-      spotify:
-        "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
-      appleMusic:
-        "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 4,
+    title: "Kintuunge",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/kintuunge.wav",
+    releaseYear: "2024",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 5,
+    title: "Star Power",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/star_power.wav",
+    releaseYear: "2024",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 6,
+    title: "Opposition",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/opposition.wav",
+    releaseYear: "2024",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 7,
+    title: "Kingdom Come",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/kingdom_come.wav",
+    releaseYear: "2024",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 8,
+    title: "In The Morning",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/in_the_morning.wav",
+    releaseYear: "2024",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 9,
+    title: "Catch Up",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/catch_up.wav",
+    releaseYear: "2024",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 10,
+    title: "Candy Flip",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/counter_heart.jpg",
+    audioSrc: "/music/audio/candy_flip_fobeats.wav",
+    releaseYear: "2020",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 11,
+    title: "Shadow Games",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/counter_heart.jpg",
+    audioSrc: "/music/audio/shadow_games_prodzeke.wav",
+    releaseYear: "2020",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 12,
+    title: "Siren",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/counter_heart.jpg",
+    audioSrc: "/music/audio/siren_prodzeke.wav",
+    releaseYear: "2020",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 13,
+    title: "Replay",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/counter_heart.jpg",
+    audioSrc: "/music/audio/replay_prodzeke.wav",
+    releaseYear: "2020",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 14,
+    title: "Waikiki",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/counter_heart.jpg",
+    audioSrc: "/music/audio/waikiki_prodzeke.wav",
+    releaseYear: "2020",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 15,
+    title: "Wild'n",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/wild_n.jpg",
+    audioSrc: "/music/audio/wild_n.wav",
+    releaseYear: "2019",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
       soundcloud: "https://soundcloud.com/t-the-pharaoh",
     },
   },
