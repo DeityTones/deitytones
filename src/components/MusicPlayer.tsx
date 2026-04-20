@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect, useMemo } from "react"
+import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import { Track } from "@/data/tracks"
 
@@ -15,31 +15,30 @@ const SNIPPET_DURATION = 30 // max seconds per preview
 export default function MusicPlayer({ tracks }: { tracks: Track[] }) {
 
   // ============================================
-  // RANDOM START INDEX
-  // useMemo makes sure the random number is
-  // only generated ONCE when the page loads
-  // not on every re-render
-  // ============================================
-  const randomStart = useMemo(
-    () => Math.floor(Math.random() * tracks.length),
-    [tracks.length]
-  )
-
-  // ============================================
   // STATE VARIABLES
-  // These control what the player is doing
-  //
-  // audioRef    → connects to the hidden <audio> element
-  // currentIndex → which track is selected (random start)
-  // isPlaying   → is audio currently playing?
-  // currentTime → how many seconds into the track
-  // duration    → total length (max 30 seconds)
   // ============================================
   const audioRef = useRef<HTMLAudioElement | null>(null)
-  const [currentIndex, setCurrentIndex] = useState(randomStart)
+  const [currentIndex, setCurrentIndex] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(SNIPPET_DURATION)
+  const [hasRandomized, setHasRandomized] = useState(false)
+
+  // ============================================
+  // RANDOM START
+  // This runs ONCE after the page loads on the
+  // client side. It picks a random track to
+  // start on. We do it here instead of in
+  // useState to avoid the hydration error
+  // (server and client picking different tracks)
+  // ============================================
+  useEffect(() => {
+    if (!hasRandomized && tracks.length > 0) {
+      const randomIndex = Math.floor(Math.random() * tracks.length)
+      setCurrentIndex(randomIndex)
+      setHasRandomized(true)
+    }
+  }, [tracks.length, hasRandomized])
 
   // The track object currently selected
   const currentTrack = tracks[currentIndex]
