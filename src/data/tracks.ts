@@ -22,12 +22,17 @@ export type Track = {
 }
 
 export const tracks: Track[] = [
+
+  // ============================================
+  // 📌 PHARAOH FILES 2 (2024) — Album Order
+  // ============================================
   {
     id: 1,
-    title: "Wish You Well",
+    title: "Sights",
     artist: "T the Pharaoh",
+    featuredArtists: ["Deuce"],
     albumArt: "/music/covers/pharaoh_files_2.jpg",
-    audioSrc: "/music/audio/wish_you_well.wav",
+    audioSrc: "/music/audio/sights.wav",
     releaseYear: "2024",
     streamingLinks: {
       spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
@@ -37,6 +42,19 @@ export const tracks: Track[] = [
   },
   {
     id: 2,
+    title: "Catch Up",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/catch_up.wav",
+    releaseYear: "2024",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 3,
     title: "Weekend In Florida",
     artist: "T the Pharaoh",
     featuredArtists: ["DirtyfaceHarry"],
@@ -50,24 +68,11 @@ export const tracks: Track[] = [
     },
   },
   {
-    id: 3,
-    title: "Roxxy",
-    artist: "T the Pharaoh",
-    albumArt: "/music/covers/pharaoh_files_2.jpg",
-    audioSrc: "/music/audio/roxxy.wav",
-    releaseYear: "2024",
-    streamingLinks: {
-      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
-      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
-      soundcloud: "https://soundcloud.com/t-the-pharaoh",
-    },
-  },
-  {
     id: 4,
-    title: "Kintuunge",
+    title: "In The Morning",
     artist: "T the Pharaoh",
     albumArt: "/music/covers/pharaoh_files_2.jpg",
-    audioSrc: "/music/audio/kintuunge.wav",
+    audioSrc: "/music/audio/in_the_morning.wav",
     releaseYear: "2024",
     streamingLinks: {
       spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
@@ -77,10 +82,10 @@ export const tracks: Track[] = [
   },
   {
     id: 5,
-    title: "Star Power",
+    title: "Follow The Leader",
     artist: "T the Pharaoh",
     albumArt: "/music/covers/pharaoh_files_2.jpg",
-    audioSrc: "/music/audio/star_power.wav",
+    audioSrc: "/music/audio/follow_the_leader.wav",
     releaseYear: "2024",
     streamingLinks: {
       spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
@@ -90,10 +95,10 @@ export const tracks: Track[] = [
   },
   {
     id: 6,
-    title: "Opposition",
+    title: "Roxxy",
     artist: "T the Pharaoh",
     albumArt: "/music/covers/pharaoh_files_2.jpg",
-    audioSrc: "/music/audio/opposition.wav",
+    audioSrc: "/music/audio/roxxy.wav",
     releaseYear: "2024",
     streamingLinks: {
       spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
@@ -116,10 +121,10 @@ export const tracks: Track[] = [
   },
   {
     id: 8,
-    title: "In The Morning",
+    title: "Opposition",
     artist: "T the Pharaoh",
     albumArt: "/music/covers/pharaoh_files_2.jpg",
-    audioSrc: "/music/audio/in_the_morning.wav",
+    audioSrc: "/music/audio/opposition.wav",
     releaseYear: "2024",
     streamingLinks: {
       spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
@@ -129,10 +134,10 @@ export const tracks: Track[] = [
   },
   {
     id: 9,
-    title: "Catch Up",
+    title: "Kingtuunge",
     artist: "T the Pharaoh",
     albumArt: "/music/covers/pharaoh_files_2.jpg",
-    audioSrc: "/music/audio/catch_up.wav",
+    audioSrc: "/music/audio/kingtuunge.wav",
     releaseYear: "2024",
     streamingLinks: {
       spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
@@ -142,11 +147,11 @@ export const tracks: Track[] = [
   },
   {
     id: 10,
-    title: "Candy Flip",
+    title: "Wish You Well",
     artist: "T the Pharaoh",
-    albumArt: "/music/covers/counter_heart.jpg",
-    audioSrc: "/music/audio/candy_flip_fobeats.wav",
-    releaseYear: "2020",
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/wish_you_well.wav",
+    releaseYear: "2024",
     streamingLinks: {
       spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
       appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
@@ -155,11 +160,11 @@ export const tracks: Track[] = [
   },
   {
     id: 11,
-    title: "Shadow Games",
+    title: "Star Power",
     artist: "T the Pharaoh",
-    albumArt: "/music/covers/counter_heart.jpg",
-    audioSrc: "/music/audio/shadow_games_prodzeke.wav",
-    releaseYear: "2020",
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/star_power.wav",
+    releaseYear: "2024",
     streamingLinks: {
       spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
       appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
@@ -168,17 +173,21 @@ export const tracks: Track[] = [
   },
   {
     id: 12,
-    title: "Siren",
+    title: "187",
     artist: "T the Pharaoh",
-    albumArt: "/music/covers/counter_heart.jpg",
-    audioSrc: "/music/audio/siren_prodzeke.wav",
-    releaseYear: "2020",
+    albumArt: "/music/covers/pharaoh_files_2.jpg",
+    audioSrc: "/music/audio/187r.wav",
+    releaseYear: "2024",
     streamingLinks: {
       spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
       appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
       soundcloud: "https://soundcloud.com/t-the-pharaoh",
     },
   },
+
+  // ============================================
+  // 📌 COUNTER HEART EP (2020) — Album Order
+  // ============================================
   {
     id: 13,
     title: "Replay",
@@ -207,6 +216,49 @@ export const tracks: Track[] = [
   },
   {
     id: 15,
+    title: "Siren",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/counter_heart.jpg",
+    audioSrc: "/music/audio/siren_prodzeke.wav",
+    releaseYear: "2020",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 16,
+    title: "Candy Flip",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/counter_heart.jpg",
+    audioSrc: "/music/audio/candy_flip_fobeats.wav",
+    releaseYear: "2020",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+  {
+    id: 17,
+    title: "Shadow Games",
+    artist: "T the Pharaoh",
+    albumArt: "/music/covers/counter_heart.jpg",
+    audioSrc: "/music/audio/shadow_games_prodzeke.wav",
+    releaseYear: "2020",
+    streamingLinks: {
+      spotify: "https://open.spotify.com/artist/57qZ07QsIzWERPqqFp50We",
+      appleMusic: "https://music.apple.com/ng/artist/t-the-pharaoh/1417699671",
+      soundcloud: "https://soundcloud.com/t-the-pharaoh",
+    },
+  },
+
+  // ============================================
+  // 📌 SINGLES
+  // ============================================
+  {
+    id: 18,
     title: "Wild'n",
     artist: "T the Pharaoh",
     albumArt: "/music/covers/wild_n.jpg",
