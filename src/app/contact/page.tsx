@@ -92,7 +92,8 @@ const pharaohsSight = [
 // ============================================
 const serviceTabs = [
   { id: "palms", label: "Pharaoh's Palms", subtitle: "Audio Services" },
-  { id: "sight", label: "Pharaoh's Sight", subtitle: "Social & Video" },
+  // { id: "sight", label: "Pharaoh's Sight", subtitle: "Social & Video" },
+  // ☝️ Uncomment this line when ready to launch Pharaoh's Sight
 ]
 
 export default function ContactPage() {
@@ -514,58 +515,60 @@ export default function ContactPage() {
                                    focus:ring-[#E5B868] 
                                    appearance-none"
                       >
-                        <optgroup label="Pharaoh's Palms - Audio">
+                                              <optgroup label="Pharaoh's Palms - Audio">
                           <option value="mastering" 
                                   className="text-black">
-                            Mastering Only — \$45
+                            Mastering Only — \\$45
                           </option>
                           <option value="mix-master-basic" 
                                   className="text-black">
-                            Mix + Master Basic — \$85
+                            Mix + Master Basic — \\$85
                           </option>
                           <option value="mix-master-complex" 
                                   className="text-black">
-                            Mix + Master Complex — \$130
+                            Mix + Master Complex — \\$130
                           </option>
                           <option value="podcast-episode" 
                                   className="text-black">
-                            Podcast Edit (Per Episode) — \$110
+                            Podcast Edit (Per Episode) — \\$110
                           </option>
                           <option value="podcast-monthly" 
                                   className="text-black">
-                            Podcast Monthly Plan — \$330
+                            Podcast Monthly Plan — \\$330
                           </option>
                           <option value="live-tracking" 
                                   className="text-black">
-                            Live Local Tracking — \$55
+                            Live Local Tracking — \\$55
                           </option>
                         </optgroup>
+                        {/*
                         <optgroup label="Pharaoh's Sight - Social & Video">
                           <option value="short-form-4" 
                                   className="text-black">
-                            Short-Form Pack 4 Clips — \$115
+                            Short-Form Pack 4 Clips — \\$115
                           </option>
                           <option value="short-form-10" 
                                   className="text-black">
-                            Short-Form Pack 10 Clips — \$220
+                            Short-Form Pack 10 Clips — \\$220
                           </option>
                           <option value="picture-enhancing" 
                                   className="text-black">
-                            Picture Enhancing 5 Images — \$55
+                            Picture Enhancing 5 Images — \\$55
                           </option>
                           <option value="ig-setup" 
                                   className="text-black">
-                            IG Profile Setup + 30-Day Plan — \$100
+                            IG Profile Setup + 30-Day Plan — \\$100
                           </option>
                           <option value="ig-growth" 
                                   className="text-black">
-                            IG 30-Day Starter Growth — \$150
+                            IG 30-Day Starter Growth — \\$150
                           </option>
                           <option value="custom" 
                                   className="text-black">
                             Custom Package
                           </option>
                         </optgroup>
+                        */}
                       </select>
                     </div>
 
