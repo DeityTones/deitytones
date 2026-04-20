@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, useMemo } from "react"
 import Image from "next/image"
 import { Track } from "@/data/tracks"
 
@@ -15,17 +15,28 @@ const SNIPPET_DURATION = 30 // max seconds per preview
 export default function MusicPlayer({ tracks }: { tracks: Track[] }) {
 
   // ============================================
+  // RANDOM START INDEX
+  // useMemo makes sure the random number is
+  // only generated ONCE when the page loads
+  // not on every re-render
+  // ============================================
+  const randomStart = useMemo(
+    () => Math.floor(Math.random() * tracks.length),
+    [tracks.length]
+  )
+
+  // ============================================
   // STATE VARIABLES
   // These control what the player is doing
   //
   // audioRef    → connects to the hidden <audio> element
-  // currentIndex → which track is selected (0 = first)
+  // currentIndex → which track is selected (random start)
   // isPlaying   → is audio currently playing?
   // currentTime → how many seconds into the track
   // duration    → total length (max 30 seconds)
   // ============================================
   const audioRef = useRef<HTMLAudioElement | null>(null)
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(randomStart)
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(SNIPPET_DURATION)
