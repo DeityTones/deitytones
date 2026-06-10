@@ -22,7 +22,7 @@ const artistInfo = {
   Mafia and more, plus traveling Europe to film & edit music videos 
   across multiple countries by himself - T the Pharaoh is proving that 
   the world is his stage.`,
-  bookingEmail: "info@yourdomain.com",
+  bookingEmail: "7heavenlykings@gmail.com",
 }
 
 // ============================================
@@ -91,24 +91,16 @@ const pressPhotos = [
 // ============================================
 // 📌 TESTIMONIALS
 // ============================================
-const testimonials = [
-  {
-    id: 1,
-    type: "quote",               
-    quote: "Testimonial quote goes here...",
-    author: "Name Here",
-    title: "Title / Role Here",
-    youtubeId: "",               
-  },
-  {
-    id: 2,
-    type: "video",
-    quote: "",                   
-    author: "Name Here",
-    title: "Title / Role Here",
-    youtubeId: "YOUTUBE_ID_HERE",
-  },
-]
+type Testimonial = {
+  id: number
+  type: "quote" | "video"
+  quote: string
+  author: string
+  title: string
+  youtubeId: string
+}
+
+const testimonials: Testimonial[] = []
 
 // ============================================
 // 📌 PAGE COMPONENT
@@ -318,6 +310,7 @@ export default function EPKPage() {
       {/* ================================
           SECTION 5: TESTIMONIALS
           ================================ */}
+      {testimonials.length > 0 && (
       <section className="px-6 py-16">
         <div className="max-w-6xl mx-auto">
           <p className="text-[#E5B868] text-sm font-semibold tracking-widest uppercase mb-2">
@@ -343,11 +336,7 @@ export default function EPKPage() {
                   </div>
                 ) : (
                   <div>
-                    {testimonial.youtubeId === "YOUTUBE_ID_HERE" ? (
-                      <div className="aspect-video w-full rounded-lg bg-black/60 flex items-center justify-center mb-4">
-                        <p className="text-white/20 text-sm tracking-widest uppercase">Video Testimonial Coming Soon</p>
-                      </div>
-                    ) : (
+                    {testimonial.youtubeId && (
                       <div className="aspect-video w-full rounded-lg overflow-hidden mb-4">
                         <iframe
                           src={`https://www.youtube.com/embed/${testimonial.youtubeId}`}
@@ -367,6 +356,7 @@ export default function EPKPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Gold Divider */}
       <div className="w-full h-px bg-[#E5B868]/20 my-4" />

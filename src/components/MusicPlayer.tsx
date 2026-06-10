@@ -12,6 +12,16 @@ import { Track } from "@/data/tracks"
 
 const SNIPPET_DURATION = 30 // max seconds per preview
 
+const getAudioMimeType = (src: string) => {
+  const cleanSrc = src.split("?")[0].toLowerCase()
+
+  if (cleanSrc.endsWith(".wav")) return "audio/wav"
+  if (cleanSrc.endsWith(".mp3") || cleanSrc.endsWith(".mpeg")) return "audio/mpeg"
+  if (cleanSrc.endsWith(".ogg")) return "audio/ogg"
+
+  return "audio/mpeg"
+}
+
 export default function MusicPlayer({ tracks }: { tracks: Track[] }) {
 
   // ============================================
@@ -215,7 +225,10 @@ export default function MusicPlayer({ tracks }: { tracks: Track[] }) {
           with our custom UI instead
           ================================ */}
       <audio ref={audioRef} preload="metadata">
-        <source src={currentTrack.audioSrc} type="audio/mpeg" />
+        <source
+          src={currentTrack.audioSrc}
+          type={getAudioMimeType(currentTrack.audioSrc)}
+        />
       </audio>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-0">

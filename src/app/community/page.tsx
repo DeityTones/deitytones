@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
 
 // ============================================
@@ -8,12 +7,11 @@ import Image from "next/image"
 // Update this object every week
 // ============================================
 const weeklySpotlight = {
-  artistName: "Artist Name Here",
-  socialHandle: "@artisthandle",
-  socialLink: "https://instagram.com/artisthandle",
-  yourWords: `Write your personal note about this artist here. 
-  Why do you fw their music? What makes them special? 
-  Keep it real and keep it you.`,
+  artistName: "T the Pharaoh",
+  socialHandle: "@lnxpr_ah",
+  socialLink: "https://instagram.com/lnxpr_ah",
+  yourWords: `T the Pharaoh builds worlds out of melody, memory, and movement. 
+  From recording and engineering to visuals and live performance, the work is rooted in feeling first and polish second.`,
   embedType: "soundcloud",
   embedSrc: "",
   youtubeId: "",

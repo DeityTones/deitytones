@@ -666,7 +666,7 @@ export default function ContactPage() {
                     <p className="text-gray-300 text-lg">
                       Email:{" "}
                       <span className="text-[#E5B868]">
-                        info@yourdomain.com
+                        7heavenlykings@gmail.com
                       </span>
                     </p>
                     <p className="text-gray-400 mt-2">
