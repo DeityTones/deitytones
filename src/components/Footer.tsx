@@ -60,7 +60,7 @@ export default function Footer() {
 
           {/* Instagram Icon */}
           <a
-            href="https://www.instagram.com/t_the_pharaoh/"
+            href="https://www.instagram.com/lnxpr_ah/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-[#E5B868] 

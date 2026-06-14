@@ -23,10 +23,14 @@ export default function HomePage() {
         </p>
 
         <h1 className="text-5xl font-bold 
-                       text-[#4c4c8e] mb-8 
-                       drop-shadow-md">
-          Discover the Future of Multi Media
-        </h1>
+               text-[#4c4c8e] mb-6 
+               drop-shadow-md">
+  Step Into Pharaohs Domain
+</h1>
+
+<p className="text-white/70 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
+  Music, visuals, and creative services shaped by vision, emotion, and frequency.
+</p>
 
         <div className="w-full max-w-3xl mb-20">
           <Image
