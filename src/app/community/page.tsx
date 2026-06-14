@@ -1,46 +1,6 @@
-<<<<<<< HEAD
-"use client"
-
-import Image from "next/image"
-
-// ============================================
-// 📌 WEEKLY ARTIST SPOTLIGHT
-// Update this object every week
-// ============================================
-const weeklySpotlight = {
-  artistName: "T the Pharaoh",
-  socialHandle: "@lnxpr_ah",
-  socialLink: "https://instagram.com/lnxpr_ah",
-  yourWords: `T the Pharaoh builds worlds out of melody, memory, and movement. 
-  From recording and engineering to visuals and live performance, the work is rooted in feeling first and polish second.`,
-  embedType: "soundcloud",
-  embedSrc: "",
-  youtubeId: "",
-  week: "Week of March 2025",
-}
-
-// ============================================
-// 📌 LATEST INSTAGRAM POST
-// To update:
-// 1. Go to your Instagram post
-// 2. Click the three dots (...)
-// 3. Click "Embed"
-// 4. Copy the src URL from the iframe code
-// 5. Paste it as the value of embedUrl below
-// ============================================
-const instagramPost = {
-  embedUrl: "https://www.instagram.com/p/PLACEHOLDER/embed",
-  caption: "Latest from the feed",
-}
-
-// ============================================
-// 📌 THIS IS THE ACTUAL PAGE COMPONENT
-// ============================================
-=======
 import Link from "next/link"
 import Image from "next/image"
 
->>>>>>> dc3714c (simplyify community page)
 export default function CommunityPage() {
   return (
     <main className="min-h-screen text-white">
@@ -67,9 +27,9 @@ export default function CommunityPage() {
           </h1>
 
           <p className="max-w-2xl mx-auto text-white/70 text-lg md:text-xl leading-relaxed mb-12">
-            The domain of T The Pharaoh is still being built... Stories, exclusive drops, 
-            and new frequencies are on the way. Until the time comes,
-            explore the music, the works, and the vision...
+            The domain of T The Pharaoh is still being built. Stories, exclusive
+            drops, and new frequencies are on the way. Until that time comes,
+            explore the music, the work, and the vision.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

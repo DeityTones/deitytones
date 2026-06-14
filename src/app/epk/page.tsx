@@ -327,7 +327,7 @@ export default function EPKPage() {
                   <div>
                     <span className="text-[#E5B868] text-4xl font-serif leading-none">"</span>
                     <p className="text-white/70 text-lg leading-relaxed mt-2 mb-6 italic">
-                      {testimonial.quote || "Testimonial coming soon..."}
+                      {testimonial.quote || ""}
                     </p>
                     <div className="border-t border-white/10 pt-4">
                       <p className="text-white font-bold">{testimonial.author}</p>
