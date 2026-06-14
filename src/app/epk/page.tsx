@@ -386,7 +386,7 @@ export default function EPKPage() {
           </div>
 
           <div className="mt-12 flex justify-center gap-8 text-white/40 text-sm tracking-widest uppercase">
-            <a href="https://www.instagram.com/t_the_pharaoh/" target="_blank" rel="noopener noreferrer" className="hover:text-[#E5B868] transition-colors duration-200">
+            <a href="https://www.instagram.com/lnxpr_ah/" target="_blank" rel="noopener noreferrer" className="hover:text-[#E5B868] transition-colors duration-200">
               Instagram
             </a>
             <a href="https://www.youtube.com/channel/UCqcICy39GycwORST5cFPodw?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="hover:text-[#E5B868] transition-colors duration-200">

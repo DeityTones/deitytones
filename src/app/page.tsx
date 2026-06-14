@@ -19,13 +19,13 @@ export default function HomePage() {
         {/* Hero Label */}
         <p className="text-[#E5B868] text-sm font-semibold
                       tracking-widest uppercase mb-6">
-          T The Pharaoh
+          
         </p>
 
-        <h1 className="text-5xl font-bold 
+       <h1 className="text-5xl font-bold 
                text-[#4c4c8e] mb-6 
-               drop-shadow-md">
-  Step Into Pharaohs Domain
+               drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+  Step Into The Domain of T The Pharaoh
 </h1>
 
 <p className="text-white/70 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
