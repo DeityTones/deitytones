@@ -23,7 +23,7 @@ export default function HomePage() {
         </p>
 
        <h1 className="text-5xl font-bold 
-               text-[#4c4c8e] mb-6 
+               text-white mb-6 
                drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
   Step Into The Domain of T The Pharaoh
 </h1>
