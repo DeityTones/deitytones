@@ -155,6 +155,7 @@ export default function EPKPage() {
               src="/epk/epkhero.jpeg"
               alt="T the Pharaoh"
               fill
+              sizes="(max-width: 1152px) 100vw, 1152px"
               className="object-cover object-center"
               priority
             />
@@ -291,6 +292,7 @@ export default function EPKPage() {
                   src={photo.src}
                   alt={photo.alt}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 384px"
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">

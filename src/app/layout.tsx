@@ -30,7 +30,7 @@ export default function RootLayout({
           {/* Egyptian Background Image */}
           <div
             className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/Ancient_Egypt.png')" }}
+            style={{ backgroundImage: "url('/Ancient_Egypt.jpg')" }}
           >
             {/* Dark overlay on top of background */}
             <div className="absolute inset-0 bg-black/60" />
