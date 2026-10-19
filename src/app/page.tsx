@@ -99,8 +99,8 @@ export default function HomePage() {
           </p>
 
           {/* Service Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 
-                          gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 
+                          gap-6 mb-16 max-w-4xl mx-auto">
 
             {/* Card 1 - Audio */}
             <div className="bg-black/40 backdrop-blur-sm 
@@ -126,7 +126,9 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Card 2 - Video */}
+            {/* Card 2 - Video: Pharaoh's Sight is hidden until further notice.
+                Restore this card (and set the grid back to md:grid-cols-3)
+                when the service launches on the Services page.
             <div className="bg-black/40 backdrop-blur-sm 
                             rounded-2xl p-8
                             border border-white/10
@@ -149,6 +151,7 @@ export default function HomePage() {
                 artists and brands.
               </p>
             </div>
+            */}
 
             {/* Card 3 - Custom */}
             <div className="bg-black/40 backdrop-blur-sm 

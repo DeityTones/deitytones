@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# T The Pharaoh — Official Site
 
-## Getting Started
+Next.js 16 (App Router) + React 19 + Tailwind CSS v4. Every page is static; the
+booking form posts to Web3Forms from the browser.
 
-First, run the development server:
+## Pages
+
+| Route        | What it is                                    |
+| ------------ | --------------------------------------------- |
+| `/`          | Home: hero and services overview              |
+| `/music`     | 30-second previews and streaming links        |
+| `/portfolio` | Performances and videos                       |
+| `/community` | Coming-soon world building page               |
+| `/contact`   | Services, rates and booking form              |
+| `/epk`       | Press kit (linked from the footer)            |
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run lint
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where to edit content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Tracks: `src/data/tracks.ts`. Preview clips go in `public/music/previews/`,
+  cover art in `public/music/covers/`. Only upload short previews, never full masters:
+  everything in `public/` is downloadable.
+- Rates and services: top of `src/app/contact/page.tsx`.
+- Bio, press photos, videos: top of `src/app/epk/page.tsx`.
+- Page titles and descriptions: `src/app/layout.tsx` and each route's `layout.tsx`.
+- Share image: `src/app/opengraph-image.jpg` (1200×630).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy (Vercel)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Import this repo at vercel.com/new (framework preset: Next.js, no settings needed).
+2. Add your domain under Project → Settings → Domains and follow the DNS steps.
+3. Set the environment variable `NEXT_PUBLIC_SITE_URL` to `https://yourdomain.com`
+   so share links, `sitemap.xml` and `robots.txt` use your domain.
