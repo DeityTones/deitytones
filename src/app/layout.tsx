@@ -2,15 +2,34 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { siteUrl } from "@/lib/site";
 
 // ============================================
 // 📌 SITE METADATA - UPDATE THESE
 // This controls what shows in browser tabs
 // and search engine results
 // ============================================
+const description =
+  "Official website of T The Pharaoh - Music, Production, Multimedia Services";
+
 export const metadata: Metadata = {
-  title: "T The Pharaoh | Official Site",
-  description: "Official website of T The Pharaoh - Music, Production, Multimedia Services",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "T The Pharaoh | Official Site",
+    template: "%s | T The Pharaoh",
+  },
+  description,
+  openGraph: {
+    type: "website",
+    siteName: "T The Pharaoh",
+    title: "T The Pharaoh | Official Site",
+    description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "T The Pharaoh | Official Site",
+    description,
+  },
 };
 
 export default function RootLayout({
