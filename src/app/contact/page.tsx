@@ -98,6 +98,8 @@ const serviceTabs = [
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState("")
   const [activeTab, setActiveTab] = useState("palms")
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -105,6 +107,8 @@ export default function ContactPage() {
     const formData = new FormData(e.currentTarget)
     formData.append("access_key", "c618d949-9583-4a44-97d8-76f44d51e2d7")
 
+    setSending(true)
+    setError("")
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -113,9 +117,14 @@ export default function ContactPage() {
       const data = await response.json()
       if (data.success) {
         setSubmitted(true)
+      } else {
+        setError("Your inquiry didn't go through. Please try again or email us directly.")
       }
     } catch (error) {
       console.log("Error:", error)
+      setError("Your inquiry didn't go through. Please check your connection and try again, or email us directly.")
+    } finally {
+      setSending(false)
     }
   };
 
@@ -460,6 +469,15 @@ export default function ContactPage() {
                   <form onSubmit={handleSubmit} 
                         className="space-y-6">
 
+                    {/* Spam trap: hidden from people, Web3Forms rejects submissions that tick it */}
+                    <input
+                      type="checkbox"
+                      name="botcheck"
+                      className="hidden"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+
                     {/* Name */}
                     <div>
                       <label className="block text-sm font-medium 
@@ -592,14 +610,21 @@ export default function ContactPage() {
                     </div>
 
                     {/* Submit */}
+                    {error && (
+                      <p role="alert" className="text-red-300 text-sm">
+                        {error}
+                      </p>
+                    )}
                     <button
                       type="submit"
+                      disabled={sending}
                       className="w-full bg-[#E5B868] text-black 
                                  font-bold py-4 rounded-lg 
                                  hover:bg-[#d4a756] 
-                                 transition-colors text-lg mt-4"
+                                 transition-colors text-lg mt-4
+                                 disabled:opacity-60 disabled:cursor-wait"
                     >
-                      Submit Inquiry
+                      {sending ? "Sending..." : "Submit Inquiry"}
                     </button>
 
                   </form>
