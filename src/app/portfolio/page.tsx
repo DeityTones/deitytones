@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { createPortal } from "react-dom"
 import Image from "next/image"
 
 // ============================================
@@ -118,6 +119,16 @@ export default function PortfolioPage() {
       : portfolioItems.filter(
           (item) => item.category === activeCategory
         )
+
+  // Lock page scroll while the modal is open
+  useEffect(() => {
+    if (!selectedItem) return
+    const previous = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.body.style.overflow = previous
+    }
+  }, [selectedItem])
 
   return (
     <main className="min-h-screen text-white">
@@ -375,8 +386,10 @@ export default function PortfolioPage() {
 
       {/* ================================
           MODAL
+          Rendered into <body> so the footer
+          and navbar can't sit on top of it
           ================================ */}
-      {selectedItem && (
+      {selectedItem && createPortal(
         <div
           className="fixed inset-0 z-50 flex items-center
                      justify-center bg-black/80
@@ -580,7 +593,8 @@ export default function PortfolioPage() {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
     </main>

@@ -10,6 +10,7 @@ export default function CommunityPage() {
             src="/community/Scrolls1.jpg"
             alt="World of T The Pharaoh"
             fill
+            sizes="100vw"
             className="object-cover object-center"
             priority
           />

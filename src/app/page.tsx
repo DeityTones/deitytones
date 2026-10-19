@@ -36,8 +36,9 @@ export default function HomePage() {
           <Image
             src="/t_hero_edit.png"
             alt="T the Pharaoh hero image"
-            width={768}
-            height={432}
+            width={1792}
+            height={2400}
+            sizes="(max-width: 768px) 100vw, 768px"
             className="rounded-lg shadow-2xl mx-auto w-full h-auto"
             priority
           />
