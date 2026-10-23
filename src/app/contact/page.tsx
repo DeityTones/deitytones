@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import ConsultCalendar, { CONSULT_BOOKING_URL } from "@/components/ConsultCalendar";
 
 // ============================================
 // 📌 PHARAOH'S PALMS - AUDIO RATE CARD
@@ -156,7 +157,8 @@ export default function ContactPage() {
               ================================ */}
           <div className="mb-12">
 
-            {/* Tab Buttons */}
+            {/* Tab Buttons (shown once there's more than one service) */}
+            {serviceTabs.length > 1 && (
             <div className="flex flex-col sm:flex-row gap-4 
                             justify-center mb-12">
               {serviceTabs.map((tab) => (
@@ -189,6 +191,7 @@ export default function ContactPage() {
                 </button>
               ))}
             </div>
+            )}
 
             {/* ================================
                 PHARAOH'S PALMS - AUDIO TABLE
@@ -421,7 +424,28 @@ export default function ContactPage() {
             >
               Get In Touch →
             </button>
+            {CONSULT_BOOKING_URL && (
+              <button
+                onClick={() => {
+                  document.getElementById('consult')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="ml-0 sm:ml-4 mt-4 sm:mt-0 px-10 py-4
+                           rounded-full border border-[#E5B868]/50
+                           text-[#E5B868] font-bold text-lg
+                           hover:bg-[#E5B868]/10
+                           transition-all duration-200"
+              >
+                Book A Call →
+              </button>
+            )}
           </div>
+
+          {/* ================================
+              CONSULT BOOKING CALENDAR
+              Turn on in src/components/ConsultCalendar.tsx
+              ================================ */}
+          <ConsultCalendar />
 
           {/* ================================
               BOOKING FORM SECTION
