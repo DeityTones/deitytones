@@ -5,7 +5,7 @@
 // or Cal.com (https://cal.com/your-name/consult).
 // Leave it empty and the section stays hidden.
 // ============================================
-export const CONSULT_BOOKING_URL: string = ""
+export const CONSULT_BOOKING_URL: string = "https://cal.com/t-the-pharaoh"
 
 // Adds each provider's embed settings so the calendar
 // matches the site's dark and gold colors
