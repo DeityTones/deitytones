@@ -157,7 +157,8 @@ export default function ContactPage() {
               ================================ */}
           <div className="mb-12">
 
-            {/* Tab Buttons */}
+            {/* Tab Buttons (shown once there's more than one service) */}
+            {serviceTabs.length > 1 && (
             <div className="flex flex-col sm:flex-row gap-4 
                             justify-center mb-12">
               {serviceTabs.map((tab) => (
@@ -190,6 +191,7 @@ export default function ContactPage() {
                 </button>
               ))}
             </div>
+            )}
 
             {/* ================================
                 PHARAOH'S PALMS - AUDIO TABLE
