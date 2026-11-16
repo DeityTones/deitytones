@@ -1,6 +1,38 @@
-"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { business } from "@/data/business";
+import Testimonials from "@/components/Testimonials";
+import { primaryBtn, secondaryBtn, FormationDisclaimer } from "@/components/ui";
+
+// ============================================
+// 📌 HOME SERVICE CARDS
+// ============================================
+const serviceCards = [
+  {
+    label: "Pharaoh's Palms",
+    title: "Audio Production",
+    text: "Recording, mixing, mastering and podcast production. From single tracks to full project packages.",
+    href: "/services#audio",
+  },
+  {
+    label: "Pharaoh's Sight",
+    title: "Reels & Short-Form",
+    text: "Your live shows and music videos, reframed into vertical reels for Instagram, TikTok and Shorts. Captions, text and synced audio included.",
+    href: "/services#reels",
+  },
+  {
+    label: business.systemsBrand,
+    title: "Artist Development Systems",
+    text: "A Master dashboard for labels and collectives: every artist's releases, ISRC and PRO status, spending and earnings in one place. Built on free Google tools.",
+    href: "/services#tracker",
+  },
+  {
+    label: "Onboarding & Business Setup",
+    title: "Get Organized",
+    text: "Two-hour guided sessions to get artists and teams organized, plus LLC filing assistance and coordination.",
+    href: "/services#onboarding",
+  },
+];
 
 export default function HomePage() {
   return (
@@ -93,103 +125,53 @@ export default function HomePage() {
           {/* Subtitle */}
           <p className="text-white/50 text-center text-lg 
                         mb-16 max-w-xl mx-auto">
-            Professional quality. Honest pricing. 
-            Built for artists who take their 
-            craft seriously.
+            Professional quality. Clear pricing. 
+            Built for artists, collectives and labels 
+            who take their craft seriously.
           </p>
 
           {/* Service Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 
                           gap-6 mb-16 max-w-4xl mx-auto">
-
-            {/* Card 1 - Audio */}
-            <div className="bg-black/40 backdrop-blur-sm 
-                            rounded-2xl p-8
-                            border border-white/10
-                            hover:border-[#E5B868]/40
-                            transition-all duration-300
-                            group">
-              <p className="text-[#E5B868] text-xs 
-                             font-semibold tracking-widest 
-                             uppercase mb-4">
-                Pharaoh's Palms
-              </p>
-              <h3 className="text-2xl font-bold text-white 
-                              mb-4 group-hover:text-[#E5B868]
-                              transition-colors duration-300">
-                Audio Production
-              </h3>
-              <p className="text-white/50 leading-relaxed">
-                Recording, mixing, mastering, and podcast 
-                production. From single tracks to full 
-                project packages.
-              </p>
-            </div>
-
-            {/* Card 2 - Video: Pharaoh's Sight is hidden until further notice.
-                Restore this card (and set the grid back to md:grid-cols-3)
-                when the service launches on the Services page.
-            <div className="bg-black/40 backdrop-blur-sm 
-                            rounded-2xl p-8
-                            border border-white/10
-                            hover:border-[#E5B868]/40
-                            transition-all duration-300
-                            group">
-              <p className="text-[#E5B868] text-xs 
-                             font-semibold tracking-widest 
-                             uppercase mb-4">
-                Pharaoh's Sight
-              </p>
-              <h3 className="text-2xl font-bold text-white 
-                              mb-4 group-hover:text-[#E5B868]
-                              transition-colors duration-300">
-                Video & Content
-              </h3>
-              <p className="text-white/50 leading-relaxed">
-                Short-form content, video editing, picture 
-                enhancing, and social media strategy for 
-                artists and brands.
-              </p>
-            </div>
-            */}
-
-            {/* Card 3 - Custom */}
-            <div className="bg-black/40 backdrop-blur-sm 
-                            rounded-2xl p-8
-                            border border-white/10
-                            hover:border-[#E5B868]/40
-                            transition-all duration-300
-                            group">
-              <p className="text-[#E5B868] text-xs 
-                             font-semibold tracking-widest 
-                             uppercase mb-4">
-                Custom
-              </p>
-              <h3 className="text-2xl font-bold text-white 
-                              mb-4 group-hover:text-[#E5B868]
-                              transition-colors duration-300">
-                Let's Build It
-              </h3>
-              <p className="text-white/50 leading-relaxed">
-                Don't see exactly what you need? 
-                Let's talk and see what we can do.
-              </p>
-            </div>
-
+            {serviceCards.map((card) => (
+              <Link
+                key={card.label}
+                href={card.href}
+                className="bg-black/40 backdrop-blur-sm 
+                           rounded-2xl p-8
+                           border border-white/10
+                           hover:border-[#E5B868]/40
+                           transition-all duration-300
+                           group"
+              >
+                <p className="text-[#E5B868] text-xs 
+                               font-semibold tracking-widest 
+                               uppercase mb-4">
+                  {card.label}
+                </p>
+                <h3 className="text-2xl font-bold text-white 
+                                mb-4 group-hover:text-[#E5B868]
+                                transition-colors duration-300">
+                  {card.title}
+                </h3>
+                <p className="text-white/50 leading-relaxed">
+                  {card.text}
+                </p>
+              </Link>
+            ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="text-center">
-            <Link
-              href="/contact"
-              className="inline-block px-12 py-5 
-                         rounded-full bg-[#E5B868] 
-                         text-black font-bold text-lg
-                         hover:scale-105 
-                         transition-transform duration-200
-                         shadow-lg"
-            >
-              View Full Rates & Book →
+          <FormationDisclaimer className="max-w-4xl mx-auto -mt-8 mb-16" />
+
+          <Testimonials />
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-16">
+            <Link href="/contact" className={primaryBtn}>
+              Book a Call →
+            </Link>
+            <Link href="/services" className={secondaryBtn}>
+              View Services & Rates →
             </Link>
           </div>
 

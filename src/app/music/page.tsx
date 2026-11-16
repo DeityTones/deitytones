@@ -1,6 +1,7 @@
 "use client"
 
 import MusicPlayer from "@/components/MusicPlayer"
+import { CtaRow } from "@/components/ui"
 import { tracks } from "@/data/tracks"
 
 export default function MusicPage() {
@@ -108,6 +109,10 @@ export default function MusicPage() {
           </div>
 
         </div>
+      </div>
+      {/* Book a Call / Get a Quote */}
+      <div className="relative z-10 px-4 pb-16 max-w-6xl mx-auto w-full">
+        <CtaRow lead="call" />
       </div>
     </main>
   )

@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import Image from "next/image"
+import { business } from "@/data/business"
 
 // ============================================
 // 📌 EPK CONTENT - UPDATE THIS SECTION
@@ -22,7 +23,8 @@ const artistInfo = {
   Mafia and more, plus traveling Europe to film & edit music videos 
   across multiple countries by himself - T the Pharaoh is proving that 
   the world is his stage.`,
-  bookingEmail: "7heavenlykings@gmail.com",
+  // Booking email comes from src/data/business.ts
+  bookingEmail: business.email,
 }
 
 // ============================================

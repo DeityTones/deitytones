@@ -47,7 +47,7 @@ export default function CommunityPage() {
               View Portfolio
             </Link>
             <Link
-              href="/contact"
+              href="/services"
               className="px-8 py-4 rounded-full border border-white/20 text-white font-bold hover:border-[#E5B868]/50 hover:text-[#E5B868] transition-all duration-200"
             >
               Book Services
