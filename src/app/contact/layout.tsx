@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Services & Booking",
-  description: "Mixing, mastering, podcast editing and recording rates from Pharaoh's Palms. Book a session with T The Pharaoh.",
+  description: "Mixing, light mastering, short-form and long-form video editing, photo editing and the Artist Portal from T The Pharaoh. See rates and book.",
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {

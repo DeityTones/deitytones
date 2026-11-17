@@ -1,106 +1,12 @@
 "use client";
 import { useState } from "react";
-
-// ============================================
-// 📌 PHARAOH'S PALMS - AUDIO RATE CARD
-// Update prices and services here
-// ============================================
-const pharaohsPalms = [
-  {
-    service: "Mastering Only",
-    description: "Polish your final stereo mix for streaming and distribution. Includes one mastered WAV + MP3 preview.",
-    price: "\$45.00",
-    highlight: false,
-  },
-  {
-    service: "Mix + Master — Basic",
-    subtitle: "(3 Stems)",
-    description: "Beat, lead vocal, and adlibs mixed and mastered into a release-ready track. Includes 2 revision rounds.",
-    price: "\$85.00",
-    highlight: false,
-  },
-  {
-    service: "Mix + Master — Complex",
-    subtitle: "(Up to ~10 Vocal Stems)",
-    description: "Full vocal stack (lead, doubles, adlibs, harmonies) mixed and mastered. Great for more complex records.",
-    price: "\$130.00",
-    highlight: false,
-  },
-  {
-    service: "Podcast Edit",
-    subtitle: "(Per Episode)",
-    description: "Clean, balanced audio with intro/outro and basic mastering for one episode up to 60 minutes.",
-    price: "\$110.00",
-    highlight: false,
-  },
-  {
-    service: "Podcast Monthly Plan",
-    description: "Four edited episodes per month (up to 60 minutes each) for consistent, pro-sounding podcast output.",
-    price: "\$330.00",
-    highlight: false,
-  },
-  {
-    service: "Live Local Tracking",
-    description: "In-person recording/engineering session for artists or groups. Minimum booking 2 hours.",
-    price: "\$55.00",
-    highlight: false,
-  },
-]
-
-// ============================================
-// 📌 PHARAOH'S SIGHT - SOCIAL/VIDEO RATE CARD
-// Update prices and services here
-// ============================================
-const pharaohsSight = [
-  {
-    service: "Short-Form Pack",
-    subtitle: "(4 Clips)",
-    description: "Four vertical videos (Reels/TikTok/Shorts) from up to 30 minutes of raw footage. Includes basic color and captions.",
-    price: "\$115.00",
-    highlight: false,
-  },
-  {
-    service: "Short-Form Pack",
-    subtitle: "(10 Clips)",
-    description: "Ten edited vertical videos from up to 60 minutes of raw footage. Ideal for a month of consistent content.",
-    price: "\$220.00",
-    highlight: false,
-  },
-  {
-    service: "Picture Enhancing",
-    subtitle: "(5 Images)",
-    description: "Light retouch, color/exposure correction, and crop/straighten for up to 5 photos for social or promo use.",
-    price: "\$55.00",
-    highlight: false,
-  },
-  {
-    service: "IG Profile Setup + 30-Day Plan",
-    description: "Optimize your IG bio, highlights, and link-in-bio, plus a written 30-day content outline.",
-    price: "\$100.00",
-    highlight: false,
-  },
-  {
-    service: "IG 30-Day Starter Growth",
-    description: "6-9 posts over 30 days using your content, with basic hashtag strategy and light engagement (no bot tactics).",
-    price: "\$150.00",
-    highlight: false,
-  },
-]
-
-// ============================================
-// 📌 SERVICE TABS
-// ============================================
-const serviceTabs = [
-  { id: "palms", label: "Pharaoh's Palms", subtitle: "Audio Services" },
-  // { id: "sight", label: "Pharaoh's Sight", subtitle: "Social & Video" },
-  // ☝️ Uncomment this line when ready to launch Pharaoh's Sight
-]
+import ServiceCards from "@/components/ServiceCards";
+import { services, serviceGroups } from "@/data/services";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
   const [error, setError] = useState("")
-  const [activeTab, setActiveTab] = useState("palms")
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -152,248 +58,12 @@ export default function ContactPage() {
           </p>
 
           {/* ================================
-              RATE CARD TABS
+              SERVICE CARDS
+              Edit prices or show/hide services in
+              src/data/services.ts
               ================================ */}
-          <div className="mb-12">
-
-            {/* Tab Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 
-                            justify-center mb-12">
-              {serviceTabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`px-8 py-5 rounded-2xl text-left
-                              border transition-all duration-300
-                    ${activeTab === tab.id
-                      ? "bg-[#E5B868]/10 border-[#E5B868] shadow-lg"
-                      : "bg-black/40 border-white/10 hover:border-[#E5B868]/50"
-                    }`}
-                >
-                  <p className={`text-lg font-bold tracking-wide
-                                 transition-colors duration-300
-                    ${activeTab === tab.id
-                      ? "text-[#E5B868]"
-                      : "text-white/70"
-                    }`}>
-                    {tab.label}
-                  </p>
-                  <p className={`text-sm tracking-widest uppercase
-                                 transition-colors duration-300
-                    ${activeTab === tab.id
-                      ? "text-white/60"
-                      : "text-white/30"
-                    }`}>
-                    {tab.subtitle}
-                  </p>
-                </button>
-              ))}
-            </div>
-
-            {/* ================================
-                PHARAOH'S PALMS - AUDIO TABLE
-                ================================ */}
-            {activeTab === "palms" && (
-              <div className="animate-fadeIn">
-
-                {/* Brand Header */}
-                <div className="bg-black/60 backdrop-blur-sm 
-                                rounded-t-2xl border border-[#E5B868]/20
-                                border-b-0 p-8">
-                  <p className="text-[#E5B868] text-xs font-semibold 
-                                 tracking-widest uppercase mb-1">
-                    Audio Production
-                  </p>
-                  <h2 className="text-3xl md:text-4xl font-bold 
-                                  text-white mb-2">
-                    Pharaoh's Palms
-                  </h2>
-                  <p className="text-white/40 text-sm">
-                    Founder: T the Pharaoh
-                  </p>
-                </div>
-
-                {/* Table Header */}
-                <div className="hidden md:grid md:grid-cols-12 
-                                gap-4 px-8 py-4
-                                bg-[#E5B868]/10 
-                                border-x border-[#E5B868]/20">
-                  <div className="col-span-3">
-                    <p className="text-[#E5B868] text-xs font-bold 
-                                   tracking-widest uppercase">
-                      Service
-                    </p>
-                  </div>
-                  <div className="col-span-7">
-                    <p className="text-[#E5B868] text-xs font-bold 
-                                   tracking-widest uppercase">
-                      Description
-                    </p>
-                  </div>
-                  <div className="col-span-2 text-right">
-                    <p className="text-[#E5B868] text-xs font-bold 
-                                   tracking-widest uppercase">
-                      Rate (USD)
-                    </p>
-                  </div>
-                </div>
-
-                {/* Table Rows */}
-                <div className="border border-[#E5B868]/20 
-                                border-t-0 rounded-b-2xl 
-                                overflow-hidden">
-                  {pharaohsPalms.map((item, index) => (
-                    <div
-                      key={index}
-                      className={`grid grid-cols-1 md:grid-cols-12 
-                                  gap-4 px-8 py-6
-                                  border-b border-white/5
-                                  transition-all duration-200
-                                  hover:bg-[#E5B868]/5
-                                  last:border-b-0
-                                  ${index % 2 === 0
-                                    ? "bg-black/40"
-                                    : "bg-black/20"
-                                  }`}
-                    >
-                      {/* Service Name */}
-                      <div className="md:col-span-3">
-                        <p className="text-white font-bold text-lg">
-                          {item.service}
-                        </p>
-                        {item.subtitle && (
-                          <p className="text-white/40 text-sm mt-1">
-                            {item.subtitle}
-                          </p>
-                        )}
-                      </div>
-
-                      {/* Description */}
-                      <div className="md:col-span-7">
-                        <p className="text-white/60 leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-
-                      {/* Price */}
-                      <div className="md:col-span-2 
-                                      md:text-right
-                                      flex md:block 
-                                      items-center gap-2">
-                        <p className="text-[#E5B868] font-bold 
-                                       text-xl">
-                          {item.price}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-              </div>
-            )}
-
-            {/* ================================
-                PHARAOH'S SIGHT - SOCIAL TABLE
-                ================================ */}
-            {activeTab === "sight" && (
-              <div className="animate-fadeIn">
-
-                {/* Brand Header */}
-                <div className="bg-black/60 backdrop-blur-sm 
-                                rounded-t-2xl border border-[#E5B868]/20
-                                border-b-0 p-8">
-                  <p className="text-[#E5B868] text-xs font-semibold 
-                                 tracking-widest uppercase mb-1">
-                    Social Media & Video
-                  </p>
-                  <h2 className="text-3xl md:text-4xl font-bold 
-                                  text-white mb-2">
-                    Pharaoh's Sight
-                  </h2>
-                  <p className="text-white/40 text-sm">
-                    Founder: T the Pharaoh
-                  </p>
-                </div>
-
-                {/* Table Header */}
-                <div className="hidden md:grid md:grid-cols-12 
-                                gap-4 px-8 py-4
-                                bg-[#E5B868]/10
-                                border-x border-[#E5B868]/20">
-                  <div className="col-span-3">
-                    <p className="text-[#E5B868] text-xs font-bold 
-                                   tracking-widest uppercase">
-                      Service
-                    </p>
-                  </div>
-                  <div className="col-span-7">
-                    <p className="text-[#E5B868] text-xs font-bold 
-                                   tracking-widest uppercase">
-                      Description
-                    </p>
-                  </div>
-                  <div className="col-span-2 text-right">
-                    <p className="text-[#E5B868] text-xs font-bold 
-                                   tracking-widest uppercase">
-                      Rate (USD)
-                    </p>
-                  </div>
-                </div>
-
-                {/* Table Rows */}
-                <div className="border border-[#E5B868]/20 
-                                border-t-0 rounded-b-2xl 
-                                overflow-hidden">
-                  {pharaohsSight.map((item, index) => (
-                    <div
-                      key={index}
-                      className={`grid grid-cols-1 md:grid-cols-12 
-                                  gap-4 px-8 py-6
-                                  border-b border-white/5
-                                  transition-all duration-200
-                                  hover:bg-[#E5B868]/5
-                                  last:border-b-0
-                                  ${index % 2 === 0
-                                    ? "bg-black/40"
-                                    : "bg-black/20"
-                                  }`}
-                    >
-                      {/* Service Name */}
-                      <div className="md:col-span-3">
-                        <p className="text-white font-bold text-lg">
-                          {item.service}
-                        </p>
-                        {item.subtitle && (
-                          <p className="text-white/40 text-sm mt-1">
-                            {item.subtitle}
-                          </p>
-                        )}
-                      </div>
-
-                      {/* Description */}
-                      <div className="md:col-span-7">
-                        <p className="text-white/60 leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-
-                      {/* Price */}
-                      <div className="md:col-span-2 
-                                      md:text-right
-                                      flex md:block 
-                                      items-center gap-2">
-                        <p className="text-[#E5B868] font-bold 
-                                       text-xl">
-                          {item.price}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-              </div>
-            )}
-
+          <div className="mb-16">
+            <ServiceCards />
           </div>
 
           {/* ================================
@@ -533,60 +203,22 @@ export default function ContactPage() {
                                    focus:ring-[#E5B868] 
                                    appearance-none"
                       >
-                                              <optgroup label="Pharaoh's Palms - Audio">
-                          <option value="mastering" 
-                                  className="text-black">
-                            Mastering Only — $45
-                          </option>
-                          <option value="mix-master-basic" 
-                                  className="text-black">
-                            Mix + Master Basic — $85
-                          </option>
-                          <option value="mix-master-complex" 
-                                  className="text-black">
-                            Mix + Master Complex — $130
-                          </option>
-                          <option value="podcast-episode" 
-                                  className="text-black">
-                            Podcast Edit (Per Episode) — $110
-                          </option>
-                          <option value="podcast-monthly" 
-                                  className="text-black">
-                            Podcast Monthly Plan — $330
-                          </option>
-                          <option value="live-tracking" 
-                                  className="text-black">
-                            Live Local Tracking — $55
-                          </option>
-                        </optgroup>
-                        {/*
-                        <optgroup label="Pharaoh's Sight - Social & Video">
-                          <option value="short-form-4" 
-                                  className="text-black">
-                            Short-Form Pack 4 Clips — $115
-                          </option>
-                          <option value="short-form-10" 
-                                  className="text-black">
-                            Short-Form Pack 10 Clips — $220
-                          </option>
-                          <option value="picture-enhancing" 
-                                  className="text-black">
-                            Picture Enhancing 5 Images — $55
-                          </option>
-                          <option value="ig-setup" 
-                                  className="text-black">
-                            IG Profile Setup + 30-Day Plan — $100
-                          </option>
-                          <option value="ig-growth" 
-                                  className="text-black">
-                            IG 30-Day Starter Growth — $150
-                          </option>
-                          <option value="custom" 
-                                  className="text-black">
-                            Custom Package
-                          </option>
-                        </optgroup>
-                        */}
+                        {(Object.keys(serviceGroups) as (keyof typeof serviceGroups)[]).map((g) => {
+                          const items = services.filter((sv) => sv.showOnSite && sv.group === g)
+                          if (items.length === 0) return null
+                          return (
+                            <optgroup key={g} label={serviceGroups[g]}>
+                              {items.map((sv) => (
+                                <option key={sv.id} value={sv.id} className="text-black">
+                                  {sv.name} — {sv.price}
+                                </option>
+                              ))}
+                            </optgroup>
+                          )
+                        })}
+                        <option value="custom" className="text-black">
+                          Something else / custom
+                        </option>
                       </select>
                     </div>
 

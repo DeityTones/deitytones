@@ -120,15 +120,12 @@ export default function HomePage() {
                 Audio Production
               </h3>
               <p className="text-white/50 leading-relaxed">
-                Recording, mixing, mastering, and podcast 
-                production. From single tracks to full 
-                project packages.
+                Mixing from $150 a song, with a light,
+                streaming-ready master for $25 more.
               </p>
             </div>
 
-            {/* Card 2 - Video: Pharaoh's Sight is hidden until further notice.
-                Restore this card (and set the grid back to md:grid-cols-3)
-                when the service launches on the Services page.
+            {/* Card 2 - Video */}
             <div className="bg-black/40 backdrop-blur-sm 
                             rounded-2xl p-8
                             border border-white/10
@@ -143,17 +140,36 @@ export default function HomePage() {
               <h3 className="text-2xl font-bold text-white 
                               mb-4 group-hover:text-[#E5B868]
                               transition-colors duration-300">
-                Video & Content
+                Video &amp; Photo
               </h3>
               <p className="text-white/50 leading-relaxed">
-                Short-form content, video editing, picture 
-                enhancing, and social media strategy for 
-                artists and brands.
+                Reels and Shorts, vlog and podcast editing, and basic photo editing for your promo.
               </p>
             </div>
-            */}
 
-            {/* Card 3 - Custom */}
+            {/* Card 3 - Artist Tools */}
+            <div className="bg-black/40 backdrop-blur-sm 
+                            rounded-2xl p-8
+                            border border-white/10
+                            hover:border-[#E5B868]/40
+                            transition-all duration-300
+                            group">
+              <p className="text-[#E5B868] text-xs 
+                             font-semibold tracking-widest 
+                             uppercase mb-4">
+                Artist Tools
+              </p>
+              <h3 className="text-2xl font-bold text-white 
+                              mb-4 group-hover:text-[#E5B868]
+                              transition-colors duration-300">
+                Artist Portal
+              </h3>
+              <p className="text-white/50 leading-relaxed">
+                Track your spending and ISRC codes per song, and get your Spotify and Apple Music profiles claimed.
+              </p>
+            </div>
+
+            {/* Card 4 - Custom */}
             <div className="bg-black/40 backdrop-blur-sm 
                             rounded-2xl p-8
                             border border-white/10
