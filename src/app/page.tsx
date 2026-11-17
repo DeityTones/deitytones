@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { business } from "@/data/business";
 import Testimonials from "@/components/Testimonials";
 import { primaryBtn, secondaryBtn, FormationDisclaimer } from "@/components/ui";
 
@@ -11,26 +10,26 @@ const serviceCards = [
   {
     label: "Pharaoh's Palms",
     title: "Audio Production",
-    text: "Recording, mixing, mastering and podcast production. From single tracks to full project packages.",
+    text: "Mixing from $150 a song, with a light, streaming-ready master for $25 more.",
     href: "/services#audio",
   },
   {
     label: "Pharaoh's Sight",
-    title: "Reels & Short-Form",
-    text: "Your live shows and music videos, reframed into vertical reels for Instagram, TikTok and Shorts. Captions, text and synced audio included.",
-    href: "/services#reels",
+    title: "Video & Photo",
+    text: "Reels and Shorts, vlog and podcast editing, and basic photo editing for your promo.",
+    href: "/services#video",
   },
   {
-    label: business.systemsBrand,
-    title: "Artist Development Systems",
-    text: "A Master dashboard for labels and collectives: every artist's releases, ISRC and PRO status, spending and earnings in one place. Built on free Google tools.",
-    href: "/services#tracker",
+    label: "Artist Tools",
+    title: "Artist Portal",
+    text: "Track your spending and ISRC codes per song, and get your Spotify and Apple Music profiles claimed.",
+    href: "/services#artist",
   },
   {
-    label: "Onboarding & Business Setup",
-    title: "Get Organized",
-    text: "Two-hour guided sessions to get artists and teams organized, plus LLC filing assistance and coordination.",
-    href: "/services#onboarding",
+    label: "Custom",
+    title: "Let's Build It",
+    text: "Don't see exactly what you need? Let's talk and see what we can do.",
+    href: "/contact",
   },
 ];
 

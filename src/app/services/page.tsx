@@ -1,11 +1,6 @@
 import Link from "next/link"
 import { business } from "@/data/business"
 import {
-  pharaohsPalms,
-  reelPackages,
-  tourRush,
-  sightExtras,
-  showSightExtras,
   trackerSetup,
   artistOnboarding,
   ownerOnboarding,
@@ -14,16 +9,21 @@ import {
   packages,
   tierLine,
 } from "@/data/rates"
+import ServiceCards from "@/components/ServiceCards"
 import { PageShell, PageHeader, SectionTitle, Card, CtaRow, FormationDisclaimer } from "@/components/ui"
-import RateTable from "@/components/RateTable"
 import ServiceBlock from "@/components/ServiceBlock"
+
+// Packages and the systems/onboarding/business services are hidden at
+// launch. Set this to true to show them again when bigger artists,
+// labels or businesses come to you. Their prices live in src/data/rates.ts.
+const showBusinessServices = false
 import Steps from "@/components/Steps"
 import Testimonials from "@/components/Testimonials"
 
 const lines = [
-  { href: "#audio", label: "Pharaoh's Palms", subtitle: "Audio Services" },
-  { href: "#reels", label: "Pharaoh's Sight", subtitle: "Reels & Short-Form" },
-  { href: "#systems", label: business.systemsBrand, subtitle: "Systems & Setup" },
+  { href: "#audio", label: "Pharaoh's Palms", subtitle: "Audio" },
+  { href: "#artist", label: "Artist Tools", subtitle: "Artist Portal" },
+  { href: "#video", label: "Pharaoh's Sight", subtitle: "Video & Photo" },
 ]
 
 const packageCards = [
@@ -66,7 +66,7 @@ export default function ServicesPage() {
       <PageHeader
         label="Work With The Pharaoh"
         title="Services & Rates"
-        subtitle="Sound, visuals and systems for independent artists, collectives and labels. Pick a service below, or book a call and we'll build a package around your roster."
+        subtitle="Professional quality. Honest pricing. Built for solo artists and duos who take their craft seriously. Pick a service below, or book a call and we'll help you choose."
       />
 
       {/* Service lines (jump links, styled like the old tabs) */}
@@ -83,6 +83,28 @@ export default function ServicesPage() {
         ))}
       </div>
 
+      {/* ================================
+          HOW IT WORKS
+          ================================ */}
+      <section className="mb-24">
+        <SectionTitle label="How It Works" title="From First Message To Finished Work" />
+        <Steps compact />
+        <p className="text-white/50 mt-4">
+          Pass-through costs like state filing fees and attorney fees are billed separately, at cost.{" "}
+          <Link href="/policies" className="text-[#E5B868] underline">See our Policies.</Link>
+        </p>
+      </section>
+
+      {/* ================================
+          LAUNCH SERVICES
+          Edit prices or show/hide services in src/data/services.ts
+          ================================ */}
+      <section className="mb-24">
+        <ServiceCards />
+      </section>
+
+      {showBusinessServices && (
+        <>
       {/* ================================
           PACKAGES
           ================================ */}
@@ -113,55 +135,6 @@ export default function ServicesPage() {
           Business formation assistance can be added to any package. State and attorney fees are separate.
         </p>
         <FormationDisclaimer className="mt-6 max-w-3xl mx-auto" />
-      </section>
-
-      {/* ================================
-          HOW IT WORKS
-          ================================ */}
-      <section className="mb-24">
-        <SectionTitle label="How It Works" title="From First Message To Finished Work" />
-        <Steps compact />
-        <p className="text-white/50 mt-4">
-          Pass-through costs like state filing fees and attorney fees are billed separately, at cost.{" "}
-          <Link href="/policies" className="text-[#E5B868] underline">See our Policies.</Link>
-        </p>
-      </section>
-
-      {/* ================================
-          PHARAOH'S PALMS - AUDIO
-          ================================ */}
-      <section id="audio" className="mb-24 scroll-mt-32">
-        <RateTable label="Audio Production" title="Pharaoh's Palms" rows={pharaohsPalms} />
-      </section>
-
-      {/* ================================
-          PHARAOH'S SIGHT - REELS
-          ================================ */}
-      <section id="reels" className="mb-24 scroll-mt-32 space-y-6">
-        <SectionTitle label="Social Media & Video" title="Pharaoh's Sight" />
-        <ServiceBlock
-          id="reel-editing"
-          label="Pharaoh's Sight"
-          title="Short-Form Video Editing"
-          who="Artists and labels with live show or music video footage that should be working on social."
-          included={[
-            "Horizontal footage reframed to vertical",
-            "Song or live audio synced",
-            "On-screen text and captions",
-            "Delivered ready for Instagram Reels, TikTok and YouTube Shorts",
-            "Monthly packages by number of reels, with faster turnaround for tours",
-            business.postsReels ? "Posting to your accounts, if you want it" : "Delivered to your Google Drive, ready to post",
-          ]}
-          notIncluded={`Filming, paid ads or licensing music you don't own${business.postsReels ? "." : ", or posting to your accounts."}`}
-          prices={[
-            ...reelPackages.map((pkg) => ({
-              name: `${pkg.name} (${pkg.reels} reels/month)`,
-              value: tierLine(pkg.prices),
-            })),
-            { name: `Tour Rush (delivery in ${tourRush.days} days)`, value: `Add ${tourRush.addOn} per package` },
-          ]}
-        />
-        {showSightExtras && <RateTable label="Social Media & Video" title="More From Pharaoh's Sight" rows={sightExtras} />}
       </section>
 
       {/* ================================
@@ -265,6 +238,9 @@ export default function ServicesPage() {
           <Link href="/templates" className="text-[#E5B868] font-bold underline">See all templates →</Link>
         </Card>
       </section>
+
+        </>
+      )}
 
       <Testimonials />
 

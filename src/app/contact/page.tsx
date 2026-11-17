@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { business } from "@/data/business";
 import { budgetRanges } from "@/data/rates";
+import { visibleServices } from "@/data/services";
 import Steps from "@/components/Steps";
 import { FormationDisclaimer } from "@/components/ui";
 
@@ -13,14 +14,8 @@ import { FormationDisclaimer } from "@/components/ui";
 const roles = ["Solo artist", "Group or band", "Label or collective", "Manager", "Other"]
 const artistCounts = ["1", "2–5", "6–10", "11+"]
 const services = [
-  "Audio (Pharaoh's Palms)",
-  "Reels (Pharaoh's Sight)",
-  "Artist Development Tracker",
-  "Onboarding",
-  "Business formation assistance",
-  "Retainer",
-  "Templates",
-  "Not sure yet",
+  ...visibleServices.map((s) => s.name),
+  "Something else / not sure yet",
 ]
 const platforms = ["Instagram", "TikTok", "YouTube Shorts", "Other"]
 const timelines = ["ASAP", "Within 2 weeks", "Within a month", "Just planning"]
