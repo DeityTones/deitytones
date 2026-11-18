@@ -32,21 +32,9 @@ export default function HomePage() {
   Music, visuals, and creative services shaped by vision, emotion, and frequency.
 </p>
 
-        <div className="w-full max-w-3xl mb-20">
-          <Image
-            src="/t_hero_edit.png"
-            alt="T the Pharaoh hero image"
-            width={1792}
-            height={2400}
-            sizes="(max-width: 768px) 100vw, 768px"
-            className="rounded-lg shadow-2xl mx-auto w-full h-auto"
-            priority
-          />
-        </div>
-
         {/* Hero CTA Buttons */}
         <div className="flex flex-col sm:flex-row 
-                        gap-4 justify-center">
+                        gap-4 justify-center mb-14">
           <Link
             href="/music"
             className="px-10 py-4 rounded-full 
@@ -60,13 +48,26 @@ export default function HomePage() {
           <Link
             href="/portfolio"
             className="px-10 py-4 rounded-full 
-                       border border-[#E5B868]/50
+                       border-2 border-[#E5B868]
+                       bg-black/60 backdrop-blur-sm
                        text-[#E5B868] font-bold text-lg
-                       hover:bg-[#E5B868]/10
+                       hover:bg-[#E5B868] hover:text-black
                        transition-all duration-200"
           >
             View The Work →
           </Link>
+        </div>
+
+        <div className="w-full max-w-3xl">
+          <Image
+            src="/t_hero_edit.png"
+            alt="T the Pharaoh hero image"
+            width={1792}
+            height={2400}
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="rounded-lg shadow-2xl mx-auto w-full h-auto"
+            priority
+          />
         </div>
 
       </div>
