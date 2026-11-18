@@ -344,9 +344,10 @@ export default function ContactPage() {
                     </h3>
                     <p className="text-gray-300 text-lg">
                       Email:{" "}
-                      <span className="text-[#E5B868]">
-                        7heavenlykings@gmail.com
-                      </span>
+                      <a href="mailto:booking@tthepharaoh.net"
+                         className="text-[#E5B868] hover:underline break-words">
+                        booking@tthepharaoh.net
+                      </a>
                     </p>
                     <p className="text-gray-400 mt-2">
                       Typical response time: 24 hours
