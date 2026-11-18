@@ -26,7 +26,7 @@ export const business = {
   templatesCheckoutUrl: "",
 
   // Policies
-  deposit: "[__]", // e.g. "50%" or "$100"
+  deposit: "50%", // paid upfront to book
   cancelBeforeWork: "[your deposit is refunded / your deposit is credited toward a future booking within [__] days]",
   lateReschedule: "[forfeits the deposit / requires a new deposit]",
   balanceDue: "[before final delivery / on the session day]",

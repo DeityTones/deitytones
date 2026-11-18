@@ -12,7 +12,7 @@ export default function PoliciesPage() {
       <div className="max-w-3xl mx-auto">
         <Prose>
           <p>
-            <strong>Deposits.</strong> A deposit of {business.deposit} is required to book. Deposits are
+            <strong>Deposits.</strong> A deposit of {business.deposit} is required to book (the Artist Portal and templates are paid in full). Deposits are
             non-refundable once work begins. If you cancel before work begins, {business.cancelBeforeWork}.
           </p>
           <p>
