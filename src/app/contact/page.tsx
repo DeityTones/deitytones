@@ -5,6 +5,7 @@ import { business } from "@/data/business";
 import { budgetRanges } from "@/data/rates";
 import { visibleServices } from "@/data/services";
 import Steps from "@/components/Steps";
+import ConsultCalendar from "@/components/ConsultCalendar";
 import { FormationDisclaimer } from "@/components/ui";
 
 // ============================================
@@ -136,6 +137,12 @@ export default function ContactPage() {
               See services & rates →
             </Link>
           </p>
+
+          {/* ================================
+              CONSULT BOOKING CALENDAR
+              Turn on in src/components/ConsultCalendar.tsx
+              ================================ */}
+          <ConsultCalendar />
 
           {/* ================================
               BOOKING FORM SECTION
