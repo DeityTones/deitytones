@@ -13,8 +13,8 @@ export const business = {
   // The third service line, next to Pharaoh's Palms and Pharaoh's Sight
   systemsBrand: "[Systems brand name]",
 
-  // TODO: switch to a business address on your own domain
-  email: "7heavenlykings@gmail.com",
+  // Public address; forwards to the main inbox (pt@tthepharaoh.net)
+  email: "booking@tthepharaoh.net",
   mailingAddress: "[Business mailing address]",
 
   // Booking and payments
