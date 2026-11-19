@@ -12,7 +12,7 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
-    formData.append("access_key", "c618d949-9583-4a44-97d8-76f44d51e2d7")
+    formData.append("access_key", "f79f7d1b-7a24-450d-842a-b63ad90d6391")
 
     setSending(true)
     setError("")
@@ -344,9 +344,10 @@ export default function ContactPage() {
                     </h3>
                     <p className="text-gray-300 text-lg">
                       Email:{" "}
-                      <span className="text-[#E5B868]">
-                        7heavenlykings@gmail.com
-                      </span>
+                      <a href="mailto:booking@tthepharaoh.net"
+                         className="text-[#E5B868] hover:underline break-words">
+                        booking@tthepharaoh.net
+                      </a>
                     </p>
                     <p className="text-gray-400 mt-2">
                       Typical response time: 24 hours

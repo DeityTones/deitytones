@@ -37,5 +37,5 @@ npm run build
 
 1. Import this repo at vercel.com/new (framework preset: Next.js, no settings needed).
 2. Add your domain under Project → Settings → Domains and follow the DNS steps.
-3. Set the environment variable `NEXT_PUBLIC_SITE_URL` to `https://yourdomain.com`
+3. Set the environment variable `NEXT_PUBLIC_SITE_URL` to `https://tthepharaoh.net` (optional; that is already the default)
    so share links, `sitemap.xml` and `robots.txt` use your domain.
