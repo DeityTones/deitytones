@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 import Image from "next/image"
+import { CtaRow } from "@/components/ui"
 
 // ============================================
 // 📌 LATEST RELEASE - UPDATE AFTER EACH DROP
@@ -597,6 +598,10 @@ export default function PortfolioPage() {
         document.body
       )}
 
+      {/* Book a Call / Get a Quote */}
+      <div className="relative z-10 px-4 pb-16 max-w-6xl mx-auto w-full">
+        <CtaRow lead="call" />
+      </div>
     </main>
   )
 }

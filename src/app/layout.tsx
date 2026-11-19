@@ -10,24 +10,25 @@ import { siteUrl } from "@/lib/site";
 // and search engine results
 // ============================================
 const description =
-  "Official website of T The Pharaoh - Music, Production, Multimedia Services";
+  "Music, audio production, reels and artist development systems from T The Pharaoh, for independent artists, collectives and labels.";
+const defaultTitle = "T The Pharaoh: Music, Reels & Artist Development";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "T The Pharaoh | Official Site",
+    default: defaultTitle,
     template: "%s | T The Pharaoh",
   },
   description,
   openGraph: {
     type: "website",
     siteName: "T The Pharaoh",
-    title: "T The Pharaoh | Official Site",
+    title: defaultTitle,
     description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "T The Pharaoh | Official Site",
+    title: defaultTitle,
     description,
   },
 };

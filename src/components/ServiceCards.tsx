@@ -10,7 +10,7 @@ export default function ServiceCards() {
   return (
     <div className="space-y-14">
       {groups.map((group) => (
-        <section key={group.id}>
+        <section key={group.id} id={group.id} className="scroll-mt-32">
           <p className="text-[#E5B868] text-xs font-semibold
                         tracking-widest uppercase mb-5">
             {group.label}

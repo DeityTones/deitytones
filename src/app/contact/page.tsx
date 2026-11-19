@@ -1,17 +1,93 @@
 "use client";
-import { useState } from "react";
-import ConsultCalendar, { CONSULT_BOOKING_URL } from "@/components/ConsultCalendar";
-import ServiceCards from "@/components/ServiceCards";
-import { services, serviceGroups } from "@/data/services";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { business } from "@/data/business";
+import { budgetRanges } from "@/data/rates";
+import { visibleServices } from "@/data/services";
+import Steps from "@/components/Steps";
+import ConsultCalendar from "@/components/ConsultCalendar";
+import { FormationDisclaimer } from "@/components/ui";
+
+// ============================================
+// 📌 INTAKE FORM OPTIONS - edit the choices here
+// Prices live in src/data/rates.ts, not in this form.
+// ============================================
+const roles = ["Solo artist", "Group or band", "Label or collective", "Manager", "Other"]
+const artistCounts = ["1", "2–5", "6–10", "11+"]
+const services = [
+  ...visibleServices.map((s) => s.name),
+  "Something else / not sure yet",
+]
+const platforms = ["Instagram", "TikTok", "YouTube Shorts", "Other"]
+const timelines = ["ASAP", "Within 2 weeks", "Within a month", "Just planning"]
+const sources = ["Instagram", "TikTok", "Referral", "A.D.A. / Nu Town", "Google", "Other"]
+
+const inputClass =
+  "w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#E5B868]"
+const labelClass = "block text-sm font-medium mb-2 text-gray-200"
+
+function Select({ name, label, options, required = false }: { name: string; label: string; options: string[]; required?: boolean }) {
+  return (
+    <div>
+      <label htmlFor={name} className={labelClass}>
+        {label}{required && " *"}
+      </label>
+      <select id={name} name={name} required={required} defaultValue="" className={`${inputClass} appearance-none`}>
+        <option value="" disabled className="text-black">Choose one</option>
+        {options.map((o) => (
+          <option key={o} value={o} className="text-black">{o}</option>
+        ))}
+      </select>
+    </div>
+  )
+}
+
+function Checkboxes({ name, legend, options, required = false }: { name: string; legend: string; options: string[]; required?: boolean }) {
+  return (
+    <fieldset>
+      <legend className={labelClass}>{legend}{required && " *"}</legend>
+      <div className="grid sm:grid-cols-2 gap-2">
+        {options.map((o) => (
+          <label key={o} className="flex items-center gap-3 text-white/80 text-sm">
+            <input type="checkbox" name={name} value={o} className="accent-[#E5B868] w-4 h-4" />
+            {o}
+          </label>
+        ))}
+      </div>
+    </fieldset>
+  )
+}
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
   const [error, setError] = useState("")
+  const [requestType, setRequestType] = useState("Book a call")
+
+  // /contact?type=quote opens the form on "Get a quote"
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("type") === "quote") {
+      setRequestType("Get a quote")
+    }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
+
+    // At least one service must be picked
+    const picked = formData.getAll("services")
+    if (picked.length === 0) {
+      setError("Please pick at least one service you're interested in.")
+      return
+    }
+    // Send checkbox groups as one readable line each
+    for (const field of ["services", "platforms"]) {
+      const values = formData.getAll(field).join(", ")
+      formData.delete(field)
+      formData.set(field, values || "(none)")
+    }
+    formData.set("subject", `New ${requestType.toLowerCase()} request from ${formData.get("name")}`)
     formData.append("access_key", "f79f7d1b-7a24-450d-842a-b63ad90d6391")
 
     setSending(true)
@@ -49,65 +125,18 @@ export default function ContactPage() {
                         tracking-widest uppercase mb-2 text-center">
             Work With The Pharaoh
           </p>
-          <h1 className="text-5xl font-bold text-center 
+          <h1 className="text-4xl md:text-5xl font-bold text-center 
                          text-white mb-4">
-            Services & Rates
+            Book a Call or Get a Quote
           </h1>
-          <p className="text-center text-white/50 mb-16 text-lg">
-            Professional quality. Honest pricing. 
-            Built for artists who take their craft seriously.
+          <p className="text-center text-white/60 mb-4 text-lg">
+            Tell us about you and your project. We&apos;ll reply with a quote and next steps.
           </p>
-
-          {/* ================================
-              SERVICE CARDS
-              Edit prices or show/hide services in
-              src/data/services.ts
-              ================================ */}
-          <div className="mb-16">
-            <ServiceCards />
-          </div>
-
-          {/* ================================
-              CUSTOM PACKAGE CTA
-              ================================ */}
-          <div className="text-center py-12 mb-16
-                          bg-black/40 backdrop-blur-sm
-                          rounded-2xl border border-[#E5B868]/10">
-            <p className="text-white/60 text-lg mb-2">
-              Don't see what you need?
-            </p>
-            <p className="text-white font-bold text-2xl mb-6">
-              Let's talk and see what we can do.
-            </p>
-            <button
-              onClick={() => {
-                document.getElementById('booking-form')
-                  ?.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className="px-10 py-4 rounded-full 
-                         bg-[#E5B868] text-black 
-                         font-bold text-lg
-                         hover:scale-105 
-                         transition-transform duration-200"
-            >
-              Get In Touch →
-            </button>
-            {CONSULT_BOOKING_URL && (
-              <button
-                onClick={() => {
-                  document.getElementById('consult')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="ml-0 sm:ml-4 mt-4 sm:mt-0 px-10 py-4
-                           rounded-full border border-[#E5B868]/50
-                           text-[#E5B868] font-bold text-lg
-                           hover:bg-[#E5B868]/10
-                           transition-all duration-200"
-              >
-                Book A Call →
-              </button>
-            )}
-          </div>
+          <p className="text-center mb-16">
+            <Link href="/services" className="text-[#E5B868] underline">
+              See services & rates →
+            </Link>
+          </p>
 
           {/* ================================
               CONSULT BOOKING CALENDAR
@@ -121,19 +150,17 @@ export default function ContactPage() {
           <div id="booking-form" 
                className="grid md:grid-cols-2 gap-12">
 
-            {/* Contact Form */}
             {submitted ? (
               <div className="md:col-span-2 bg-green-900/30 
                               border border-green-500 p-8
                               rounded-xl text-center 
                               max-w-2xl mx-auto 
                               backdrop-blur-md">
-                <h3 className="text-3xl font-bold mb-4 text-white">
-                  Thank You!
-                </h3>
+                <h2 className="text-3xl font-bold mb-4 text-white">
+                  Got It.
+                </h2>
                 <p className="text-lg text-gray-200">
-                  We'll get back to you within 24 hours 
-                  to discuss your project.
+                  We&apos;ll reply within {business.replyDays} business days with next steps.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -148,18 +175,17 @@ export default function ContactPage() {
             ) : (
               <>
                 {/* Form */}
-                <div className="bg-black/40 backdrop-blur-md p-8 
+                <div className="bg-black/40 backdrop-blur-md p-6 md:p-8 
                                 rounded-2xl border border-white/10 
                                 shadow-2xl">
                   <p className="text-[#E5B868] text-xs font-semibold 
                                  tracking-widest uppercase mb-2">
-                    Ready To Book?
+                    Intake Form
                   </p>
                   <h2 className="text-2xl font-bold mb-6 text-white">
-                    Send Inquiry
+                    Tell Us About Your Project
                   </h2>
-                  <form onSubmit={handleSubmit} 
-                        className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
 
                     {/* Spam trap: hidden from people, Web3Forms rejects submissions that tick it */}
                     <input
@@ -170,100 +196,72 @@ export default function ContactPage() {
                       autoComplete="off"
                     />
 
-                    {/* Name */}
+                    {/* Book a call or get a quote */}
+                    <fieldset>
+                      <legend className={labelClass}>I&apos;d like to *</legend>
+                      <div className="flex gap-3">
+                        {["Book a call", "Get a quote"].map((option) => (
+                          <label
+                            key={option}
+                            className={`flex-1 text-center cursor-pointer px-4 py-3 rounded-lg border transition-colors
+                              ${requestType === option ? "border-[#E5B868] bg-[#E5B868]/10 text-[#E5B868]" : "border-white/10 text-white/70"}`}
+                          >
+                            <input
+                              type="radio"
+                              name="request_type"
+                              value={option}
+                              checked={requestType === option}
+                              onChange={() => setRequestType(option)}
+                              className="sr-only"
+                            />
+                            {option}
+                          </label>
+                        ))}
+                      </div>
+                    </fieldset>
+
                     <div>
-                      <label className="block text-sm font-medium 
-                                        mb-2 text-gray-200">
-                        Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        className="w-full px-4 py-3 bg-white/5 
-                                   border border-white/10 rounded-lg 
-                                   text-white placeholder-gray-500
-                                   focus:outline-none 
-                                   focus:ring-2 
-                                   focus:ring-[#E5B868]"
-                        placeholder="Your Name"
-                      />
+                      <label htmlFor="name" className={labelClass}>Name *</label>
+                      <input id="name" type="text" name="name" required autoComplete="name" className={inputClass} placeholder="Your name" />
                     </div>
 
-                    {/* Email */}
                     <div>
-                      <label className="block text-sm font-medium 
-                                        mb-2 text-gray-200">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        className="w-full px-4 py-3 bg-white/5 
-                                   border border-white/10 rounded-lg 
-                                   text-white placeholder-gray-500
-                                   focus:outline-none 
-                                   focus:ring-2 
-                                   focus:ring-[#E5B868]"
-                        placeholder="your@email.com"
-                      />
+                      <label htmlFor="email" className={labelClass}>Email *</label>
+                      <input id="email" type="email" name="email" required autoComplete="email" className={inputClass} placeholder="you@email.com" />
                     </div>
 
-                    {/* Service Type */}
                     <div>
-                      <label className="block text-sm font-medium 
-                                        mb-2 text-gray-200">
-                        Service Type
-                      </label>
-                      <select
-                        name="service"
-                        className="w-full px-4 py-3 bg-white/5 
-                                   border border-white/10 rounded-lg 
-                                   text-white focus:outline-none
-                                   focus:ring-2 
-                                   focus:ring-[#E5B868] 
-                                   appearance-none"
-                      >
-                        {(Object.keys(serviceGroups) as (keyof typeof serviceGroups)[]).map((g) => {
-                          const items = services.filter((sv) => sv.showOnSite && sv.group === g)
-                          if (items.length === 0) return null
-                          return (
-                            <optgroup key={g} label={serviceGroups[g]}>
-                              {items.map((sv) => (
-                                <option key={sv.id} value={sv.id} className="text-black">
-                                  {sv.name} — {sv.price}
-                                </option>
-                              ))}
-                            </optgroup>
-                          )
-                        })}
-                        <option value="custom" className="text-black">
-                          Something else / custom
-                        </option>
-                      </select>
+                      <label htmlFor="phone" className={labelClass}>Phone</label>
+                      <input id="phone" type="tel" name="phone" autoComplete="tel" className={inputClass} placeholder="(optional)" />
                     </div>
 
-                    {/* Message */}
+                    <Select name="role" label="I am a…" options={roles} required />
+                    <Select name="number_of_artists" label="Number of artists" options={artistCounts} required />
+                    <Checkboxes name="services" legend="Services interested in" options={services} required />
+                    <Checkboxes name="platforms" legend="Platforms (for reels)" options={platforms} />
+                    <Select name="timeline" label="Timeline" options={timelines} required />
+                    <Select name="budget" label="Budget range" options={budgetRanges} />
+                    <Select name="heard_about" label="How did you hear about us?" options={sources} />
+
                     <div>
-                      <label className="block text-sm font-medium 
-                                        mb-2 text-gray-200">
-                        Message
-                      </label>
+                      <label htmlFor="message" className={labelClass}>Tell us about your project</label>
                       <textarea
+                        id="message"
                         name="message"
                         rows={4}
-                        className="w-full px-4 py-3 bg-white/5 
-                                   border border-white/10 rounded-lg 
-                                   text-white placeholder-gray-500
-                                   focus:outline-none 
-                                   focus:ring-2 
-                                   focus:ring-[#E5B868]"
-                        placeholder="Tell me about your project..."
+                        className={inputClass}
+                        placeholder="Release dates, tour dates, links"
                       />
                     </div>
 
-                    {/* Submit */}
+                    <label className="flex items-start gap-3 text-sm text-white/80">
+                      <input type="checkbox" name="consent" value="Yes" required className="accent-[#E5B868] w-4 h-4 mt-0.5" />
+                      <span>
+                        I agree to be contacted about my inquiry and have read the{" "}
+                        <Link href="/privacy" className="text-[#E5B868] underline">Privacy Policy</Link>. *
+                      </span>
+                    </label>
+
                     {error && (
                       <p role="alert" className="text-red-300 text-sm">
                         {error}
@@ -278,58 +276,33 @@ export default function ContactPage() {
                                  transition-colors text-lg mt-4
                                  disabled:opacity-60 disabled:cursor-wait"
                     >
-                      {sending ? "Sending..." : "Submit Inquiry"}
+                      {sending ? "Sending..." : "Send My Inquiry"}
                     </button>
+                    <p className="text-xs text-white/50">
+                      Please don&apos;t send passwords, bank details or Social Security numbers through this form.
+                    </p>
 
                   </form>
                 </div>
 
                 {/* Booking Process */}
                 <div className="space-y-6">
-                  <div className="bg-black/40 backdrop-blur-md p-8 
-                                  rounded-2xl border border-white/10 
-                                  shadow-2xl">
+                  <div>
                     <p className="text-[#E5B868] text-xs font-semibold 
                                    tracking-widest uppercase mb-2">
                       How It Works
                     </p>
-                    <h3 className="text-2xl font-bold mb-6 text-white">
-                      Booking Process
-                    </h3>
-                    <ol className="space-y-4 text-gray-300 text-lg">
-                      <li className="flex items-start gap-4 
-                                     pb-4 border-b border-white/10">
-                        <span className="text-[#E5B868] font-bold 
-                                          text-xl min-w-[24px]">
-                          01
-                        </span>
-                        <span>Submit inquiry form</span>
-                      </li>
-                      <li className="flex items-start gap-4 
-                                     pb-4 border-b border-white/10">
-                        <span className="text-[#E5B868] font-bold 
-                                          text-xl min-w-[24px]">
-                          02
-                        </span>
-                        <span>We'll schedule a discovery call</span>
-                      </li>
-                      <li className="flex items-start gap-4 
-                                     pb-4 border-b border-white/10">
-                        <span className="text-[#E5B868] font-bold 
-                                          text-xl min-w-[24px]">
-                          03
-                        </span>
-                        <span>Receive custom quote & timeline</span>
-                      </li>
-                      <li className="flex items-start gap-4">
-                        <span className="text-[#E5B868] font-bold 
-                                          text-xl min-w-[24px]">
-                          04
-                        </span>
-                        <span>50% deposit to secure booking</span>
-                      </li>
-                    </ol>
+                    <h2 className="text-2xl font-bold mb-6 text-white">
+                      Booking & Payment
+                    </h2>
+                    <Steps />
+                    <p className="text-white/50 text-sm mt-4">
+                      Deposit to book: {business.deposit}.{" "}
+                      <Link href="/policies" className="text-[#E5B868] underline">See our Policies.</Link>
+                    </p>
                   </div>
+
+                  <FormationDisclaimer />
 
                   {/* Direct Contact */}
                   <div className="bg-black/40 backdrop-blur-md p-8 
@@ -342,15 +315,14 @@ export default function ContactPage() {
                     <h3 className="text-2xl font-bold mb-4 text-white">
                       Reach Out Directly
                     </h3>
-                    <p className="text-gray-300 text-lg">
+                    <p className="text-gray-300 text-lg break-words">
                       Email:{" "}
-                      <a href="mailto:booking@tthepharaoh.net"
-                         className="text-[#E5B868] hover:underline break-words">
-                        booking@tthepharaoh.net
+                      <a href={`mailto:${business.email}`} className="text-[#E5B868]">
+                        {business.email}
                       </a>
                     </p>
                     <p className="text-gray-400 mt-2">
-                      Typical response time: 24 hours
+                      Typical response time: {business.replyDays} business days
                     </p>
                   </div>
                 </div>
