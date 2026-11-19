@@ -12,7 +12,7 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
-    formData.append("access_key", "c618d949-9583-4a44-97d8-76f44d51e2d7")
+    formData.append("access_key", "f79f7d1b-7a24-450d-842a-b63ad90d6391")
 
     setSending(true)
     setError("")
