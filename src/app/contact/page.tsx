@@ -304,7 +304,7 @@ export default function ContactPage() {
                     <Steps />
                     <p className="text-white/50 text-sm mt-4">
                       Deposit to book: {business.deposit}.{" "}
-                      <Link href="/policies" className="text-[#E5B868] underline">See our Policies.</Link>
+                      {business.legalPagesReady && <Link href="/policies" className="text-[#E5B868] underline">See our Policies.</Link>}
                     </p>
                   </div>
 

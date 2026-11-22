@@ -4,7 +4,7 @@ import { business, siteDisclaimer } from "@/data/business";
 const secondaryLinks = [
   { href: "/how-it-works", label: "How It Works" },
   { href: "/faq", label: "FAQ" },
-  { href: "/policies", label: "Policies" },
+  { href: "/policies", label: "Policies", legal: true },
   { href: "/privacy", label: "Privacy", legal: true },
   { href: "/terms", label: "Terms", legal: true },
 ].filter((link) => !link.legal || business.legalPagesReady);

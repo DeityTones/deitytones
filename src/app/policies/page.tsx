@@ -1,7 +1,9 @@
+import { notFound } from "next/navigation"
 import { business } from "@/data/business"
 import { PageShell, PageHeader, Prose, CtaRow, FormationDisclaimer } from "@/components/ui"
 
 export default function PoliciesPage() {
+  if (!business.legalPagesReady) notFound()
   return (
     <PageShell>
       <PageHeader
