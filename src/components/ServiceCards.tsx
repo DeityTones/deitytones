@@ -51,6 +51,16 @@ export default function ServiceCards() {
                   <span className="text-white/80 font-semibold">Turnaround: </span>
                   {s.turnaround}
                 </p>
+                {s.checkout && (
+                  <a
+                    href={`/pay#${s.id}`}
+                    className="mt-5 text-center px-8 py-3 rounded-full bg-[#E5B868]
+                               text-black font-bold hover:scale-[1.02]
+                               transition-transform duration-200"
+                  >
+                    {s.checkout.payInFull ? "Buy Now" : "Pay Deposit"}
+                  </a>
+                )}
               </article>
             ))}
           </div>
