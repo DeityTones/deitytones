@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { business } from "@/data/business"
 import { PageShell, PageHeader, primaryBtn, FormationDisclaimer } from "@/components/ui"
 import Steps from "@/components/Steps"
 
@@ -10,7 +11,7 @@ export default function HowItWorksPage() {
         <Steps />
         <p className="text-white/60 mt-8 leading-relaxed">
           Pass-through costs like state filing fees and attorney fees are billed separately, at cost.{" "}
-          <Link href="/policies" className="text-[#E5B868] underline">See our Policies.</Link>
+          {business.legalPagesReady && <Link href="/policies" className="text-[#E5B868] underline">See our Policies.</Link>}
         </p>
         <FormationDisclaimer className="mt-6" />
         <div className="text-center mt-12">

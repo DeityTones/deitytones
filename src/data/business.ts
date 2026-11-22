@@ -46,7 +46,7 @@ export const business = {
   // TODO: confirm with your CPA
   taxNote: "Sales tax is added at checkout where required.",
 
-  // Legal pages: the Privacy Policy and Terms stay hidden (404, no links)
+  // Legal pages: Policies, the Privacy Policy and Terms stay hidden (404, no links)
   // until your attorney has reviewed them and the mailing address is in.
   legalPagesReady: true,
   legalLastUpdated: "November 22, 2026",

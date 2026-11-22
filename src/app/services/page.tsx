@@ -91,7 +91,7 @@ export default function ServicesPage() {
         <Steps compact />
         <p className="text-white/50 mt-4">
           Pass-through costs like state filing fees and attorney fees are billed separately, at cost.{" "}
-          <Link href="/policies" className="text-[#E5B868] underline">See our Policies.</Link>
+          {business.legalPagesReady && <Link href="/policies" className="text-[#E5B868] underline">See our Policies.</Link>}
         </p>
       </section>
 
