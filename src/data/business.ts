@@ -23,7 +23,7 @@ export const business = {
   paymentMethods: "Credit or debit card, through Stripe",
   // Optional direct links. Leave "" to hide the buttons.
   bookingUrl: "",
-  templatesCheckoutUrl: "",
+  templatesCheckoutUrl: "/pay#templates",
 
   // Policies
   deposit: "50%", // paid upfront to book
