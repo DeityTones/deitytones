@@ -21,6 +21,21 @@ export type Service = {
   includes: string[]
   turnaround: string
   showOnSite: boolean
+  // How online checkout prices this service (see src/lib/pricing.ts).
+  // Leave it out for quote-only work: send those clients a Stripe
+  // invoice from the Dashboard instead.
+  checkout?: CheckoutPricing
+}
+
+// All amounts are in cents: 15000 = $150.00
+export type CheckoutPricing = {
+  unit: string            // what the client counts, e.g. "song"
+  unitCents: number       // price per unit
+  bulk?: { minQty: number; unitCents: number } // e.g. 3+ songs at a lower rate
+  base?: { qty: number; cents: number }        // e.g. first 3 photos for $35
+  addOn?: { label: string; unitCents: number } // optional extra per unit
+  maxQty: number
+  payInFull?: boolean     // true = charge the full price, not a deposit
 }
 
 export const serviceGroups: Record<Service["group"], string> = {
@@ -45,6 +60,13 @@ export const services: Service[] = [
     ],
     turnaround: "5–7 days",
     showOnSite: true,
+    checkout: {
+      unit: "song",
+      unitCents: 15000,
+      bulk: { minQty: 3, unitCents: 13500 },
+      addOn: { label: "Add a Light Master to each song ($25 per song)", unitCents: 2500 },
+      maxQty: 20,
+    },
   },
   {
     id: "light-master",
@@ -60,6 +82,7 @@ export const services: Service[] = [
     ],
     turnaround: "2–3 days",
     showOnSite: true,
+    checkout: { unit: "song", unitCents: 4000, maxQty: 20 },
   },
   {
     id: "artist-portal",
@@ -75,6 +98,7 @@ export const services: Service[] = [
     ],
     turnaround: "Portal right away · profile access usually 1–7 days (set by Spotify and Apple)",
     showOnSite: true,
+    checkout: { unit: "artist", unitCents: 4900, maxQty: 1, payInFull: true },
   },
   {
     id: "short-form",
@@ -90,6 +114,7 @@ export const services: Service[] = [
     ],
     turnaround: "3–5 days per reel",
     showOnSite: true,
+    checkout: { unit: "reel", unitCents: 8500, bulk: { minQty: 3, unitCents: 7500 }, maxQty: 20 },
   },
   {
     id: "long-form",
@@ -122,6 +147,7 @@ export const services: Service[] = [
     ],
     turnaround: "3–5 days",
     showOnSite: true,
+    checkout: { unit: "photo", unitCents: 1000, base: { qty: 3, cents: 3500 }, maxQty: 50 },
   },
 
   // ---------- Hidden (quote only / bigger clients) ----------
