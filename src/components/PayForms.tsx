@@ -15,7 +15,7 @@ function ServiceForm({ service }: { service: PayableService }) {
   const quote = quoteService(service.id, qty, addOn)
 
   return (
-    <form action="/api/checkout" method="POST" onSubmit={() => setSending(true)} className={card}>
+    <form id={service.id} action="/api/checkout" method="POST" onSubmit={() => setSending(true)} className={`${card} scroll-mt-32 target:border-[#E5B868]`}>
       <input type="hidden" name="kind" value="service" />
       <input type="hidden" name="item" value={service.id} />
       <h3 className="text-2xl font-bold text-white mb-1">{service.name}</h3>
@@ -63,7 +63,7 @@ function ServiceForm({ service }: { service: PayableService }) {
       </div>
 
       <button type="submit" disabled={!quote || sending} className={button}>
-        {sending ? "Opening secure checkout…" : quote?.payInFull ? "Pay Now" : "Pay Deposit"}
+        {sending ? "Opening secure checkout…" : quote?.payInFull ? "Buy Now" : "Pay Deposit"}
       </button>
     </form>
   )
@@ -90,13 +90,13 @@ export default function PayForms() {
           <p className="text-[#E5B868] text-xs font-semibold tracking-widest uppercase mb-5">Templates</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {visibleTemplates.map((t) => (
-              <form key={t.id} action="/api/checkout" method="POST" className={card}>
+              <form key={t.id} id={t.id} action="/api/checkout" method="POST" className={`${card} scroll-mt-32 target:border-[#E5B868]`}>
                 <input type="hidden" name="kind" value="template" />
                 <input type="hidden" name="item" value={t.id} />
                 <h3 className="text-2xl font-bold text-white mb-2">{t.name}</h3>
                 <p className="text-white/60 leading-relaxed flex-grow">{t.description}</p>
                 <p className="text-[#E5B868] font-bold text-2xl mt-6">{money(t.priceCents)}</p>
-                <button type="submit" className={button}>Buy Template</button>
+                <button type="submit" className={button}>Buy Now</button>
               </form>
             ))}
           </div>
