@@ -16,7 +16,7 @@ const routes = [
   "/epk",
   "/privacy",
   "/terms",
-].filter((r) => business.legalPagesReady || (r !== "/privacy" && r !== "/terms"))
+].filter((r) => business.legalPagesReady || !["/policies", "/privacy", "/terms"].includes(r))
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
