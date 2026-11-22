@@ -54,13 +54,13 @@ export default function PrivacyPage() {
           <h2>How we protect it</h2>
           <p>
             Portals are private Google files shared only with the right people. We use strong passwords and two-step
-            verification on our accounts, limit who has access, and remove access when a project or retainer ends. No
+            verification on our accounts, limit who has access, and remove access when a project ends. No
             system is perfectly secure, and we&apos;ll tell you promptly if something goes wrong.
           </p>
 
           <h2>How long we keep it</h2>
           <p>
-            Inquiries: [__] months. Client records and invoices: [__] years. Tracker data: until you ask us to remove our
+            Inquiries: 12 months. Client records and invoices: 7 years. Tracker data: until you ask us to remove our
             access or the engagement ends.
           </p>
 

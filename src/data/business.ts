@@ -7,7 +7,7 @@
 
 export const business = {
   // Legal name as registered with the state, and the name people see
-  legalName: "[Legal business name]",
+  legalName: "Deity Tones LLC",
   brandName: "T The Pharaoh",
 
   // The third service line, next to Pharaoh's Palms and Pharaoh's Sight
@@ -18,32 +18,36 @@ export const business = {
   mailingAddress: "[Business mailing address]",
 
   // Booking and payments
-  paymentTool: "[payment tool]",
-  bookingTool: "[booking tool]",
-  paymentMethods: "[Accepted payment methods, for example: card, Cash App, Zelle or bank transfer]",
+  paymentTool: "Stripe",
+  bookingTool: "Cal.com",
+  paymentMethods: "Credit or debit card, through Stripe",
   // Optional direct links. Leave "" to hide the buttons.
   bookingUrl: "",
   templatesCheckoutUrl: "",
 
   // Policies
   deposit: "50%", // paid upfront to book
-  cancelBeforeWork: "[your deposit is refunded / your deposit is credited toward a future booking within [__] days]",
-  lateReschedule: "[forfeits the deposit / requires a new deposit]",
-  balanceDue: "[before final delivery / on the session day]",
+  cancelBeforeWork: "your deposit becomes a credit toward a booking within 60 days",
+  lateReschedule: "forfeits the deposit",
+  balanceDue: "before final files are delivered",
+  // Retainers aren't offered at launch. Set to true (and fill in the
+  // days below) to show retainer terms on Policies, Terms and the FAQ.
+  offersRetainers: false,
   retainerLateDays: "[__]",
   retainerNoticeDays: "[__]",
   lateFee: "", // e.g. "a late fee of $25 after 7 days". Leave "" to hide.
-  replyDays: "[__]",
-  sessionLocation: "[Google Meet / Zoom / in person]",
+  replyDays: "1–2",
+  sessionLocation: "video call: the FaceTime link in your calendar invite, or Google Meet or Zoom if you prefer",
 
   // Reels: set to true if you post reels to clients' accounts
   postsReels: false,
 
   // Sales tax note on templates (pick one after your CPA confirms)
-  taxNote: "[Sales tax is added at checkout where required. | Prices include any applicable tax.]",
+  // TODO: confirm with your CPA
+  taxNote: "Sales tax is added at checkout where required.",
 
   // Legal pages
-  legalLastUpdated: "[date]",
+  legalLastUpdated: "November 22, 2026",
   liabilityMonths: "3",
 
   // Social proof: keep false until Nu Town / A.D.A. gives written permission

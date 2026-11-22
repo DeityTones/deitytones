@@ -1,7 +1,7 @@
 import { business } from "@/data/business"
 import { PageShell, PageHeader, CtaRow, FormationDisclaimer } from "@/components/ui"
 
-const faqs: { q: string; a: string; formation?: boolean }[] = [
+const allFaqs: { q: string; a: string; formation?: boolean; retainer?: boolean }[] = [
   {
     q: "Do I need to know spreadsheets?",
     a: "No. Your portal is a simple fill-in sheet, and we walk you through it in your onboarding session. The owner's dashboard updates itself.",
@@ -28,6 +28,7 @@ const faqs: { q: string; a: string; formation?: boolean }[] = [
   {
     q: "How are retainers billed?",
     a: "Every 2 weeks, in advance. If a payment is late, work pauses until it's caught up.",
+    retainer: true,
   },
   {
     q: "What if I need to reschedule?",
@@ -46,6 +47,9 @@ const faqs: { q: string; a: string; formation?: boolean }[] = [
     a: `${business.paymentMethods}. A deposit books your spot; see How It Works.`,
   },
 ]
+
+// Retainer questions show only when retainers are offered
+const faqs = allFaqs.filter((f) => !f.retainer || business.offersRetainers)
 
 export default function FaqPage() {
   return (

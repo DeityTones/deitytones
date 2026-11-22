@@ -23,7 +23,7 @@ export default function TermsPage() {
             invoice sets the scope, price and timeline.
           </p>
           <p>
-            <strong>2. Payment.</strong> Deposits, balances, retainers, rescheduling and refunds follow our{" "}
+            <strong>2. Payment.</strong> Deposits, balances, {business.offersRetainers ? "retainers, " : ""}rescheduling and refunds follow our{" "}
             <Link href="/policies">Policies</Link> page, which is part of these terms.
           </p>
           <p>
@@ -55,15 +55,17 @@ export default function TermsPage() {
             the claim. We&apos;re not liable for lost profits, lost data or indirect damages. Services and templates are
             provided &quot;as is.&quot;
           </p>
+          {business.offersRetainers && (
+            <p>
+              <strong>9. Ending work.</strong> Either side may end a retainer with {business.retainerNoticeDays} days&apos;
+              written notice. Work already done is billed.
+            </p>
+          )}
           <p>
-            <strong>9. Ending work.</strong> Either side may end a retainer with {business.retainerNoticeDays} days&apos;
-            written notice. Work already done is billed.
+            <strong>{business.offersRetainers ? 10 : 9}. Governing law.</strong> These terms are governed by the laws of the State of Wisconsin.
           </p>
           <p>
-            <strong>10. Governing law.</strong> These terms are governed by the laws of the State of Wisconsin.
-          </p>
-          <p>
-            <strong>11. Changes.</strong> We may update these terms; the date above shows the latest version.
+            <strong>{business.offersRetainers ? 11 : 10}. Changes.</strong> We may update these terms; the date above shows the latest version.
           </p>
           <p>
             <strong>Contact:</strong> <a href={`mailto:${business.email}`}>{business.email}</a>.

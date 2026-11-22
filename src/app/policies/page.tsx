@@ -23,11 +23,13 @@ export default function PoliciesPage() {
             <strong>Balance.</strong> The remaining balance is due {business.balanceDue}. Final files are released
             when the balance is paid.
           </p>
-          <p>
-            <strong>Retainers.</strong> Retainers are billed every 2 weeks, in advance. If a payment is more than{" "}
-            {business.retainerLateDays} days late, work pauses until the account is current. To end a retainer, give{" "}
-            {business.retainerNoticeDays} days&apos; written notice.
-          </p>
+          {business.offersRetainers && (
+            <p>
+              <strong>Retainers.</strong> Retainers are billed every 2 weeks, in advance. If a payment is more than{" "}
+              {business.retainerLateDays} days late, work pauses until the account is current. To end a retainer, give{" "}
+              {business.retainerNoticeDays} days&apos; written notice.
+            </p>
+          )}
           <p>
             <strong>Digital products.</strong> Templates and checklists are non-refundable after delivery. If a link
             doesn&apos;t work, we&apos;ll fix it.

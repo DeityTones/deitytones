@@ -20,7 +20,7 @@ export const steps = [
   },
   {
     title: "Pay the balance.",
-    text: `The remaining balance is due ${business.balanceDue}. Retainers are billed every 2 weeks in advance.`,
+    text: `The remaining balance is due ${business.balanceDue}.${business.offersRetainers ? " Retainers are billed every 2 weeks in advance." : ""}`,
   },
 ]
 
