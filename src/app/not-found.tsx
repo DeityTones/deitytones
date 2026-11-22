@@ -21,6 +21,12 @@ export default function NotFound() {
       >
         Back To The Domain
       </Link>
+      <Link
+        href="/contact"
+        className="mt-4 text-[#E5B868] underline"
+      >
+        Or book a call →
+      </Link>
     </main>
   )
 }

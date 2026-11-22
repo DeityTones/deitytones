@@ -1,4 +1,13 @@
 import Link from "next/link";
+import { business, siteDisclaimer } from "@/data/business";
+
+const secondaryLinks = [
+  { href: "/how-it-works", label: "How It Works" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/policies", label: "Policies" },
+  { href: "/privacy", label: "Privacy", legal: true },
+  { href: "/terms", label: "Terms", legal: true },
+].filter((link) => !link.legal || business.legalPagesReady);
 
 export default function Footer() {
   return (
@@ -15,42 +24,55 @@ export default function Footer() {
             className="text-2xl font-bold text-[#E5B868] tracking-widest 
                        hover:text-white transition-colors"
           >
-            LNXPR_AH
+            {business.brandName.toUpperCase()}
           </Link>
           <p className="text-sm text-gray-500 mt-2">
-            &copy; {new Date().getFullYear()} T the Pharaoh. All Rights Reserved.
+            &copy; {new Date().getFullYear()} {business.legalName}. All rights reserved.
+          </p>
+          <p className="text-xs text-gray-600 mt-1">
+            {business.brandName} is a trade name of {business.legalName}.
           </p>
         </div>
 
         {/* ================================
             MIDDLE: Navigation Links
             ================================ */}
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 
-                        text-sm font-medium tracking-widest text-gray-400">
-          <Link href="/" className="hover:text-[#E5B868] transition-colors">
-            HOME
-          </Link>
-          <Link href="/music" className="hover:text-[#E5B868] transition-colors">
-            MUSIC
-          </Link>
-          <Link href="/portfolio" className="hover:text-[#E5B868] transition-colors">
-            PORTFOLIO
-          </Link>
-          <Link href="/contact" className="hover:text-[#E5B868] transition-colors">
-            SERVICES
-          </Link>
+        <div className="flex flex-col items-center gap-3">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 
+                          text-sm font-medium tracking-widest text-gray-400">
+            <Link href="/" className="hover:text-[#E5B868] transition-colors">
+              HOME
+            </Link>
+            <Link href="/music" className="hover:text-[#E5B868] transition-colors">
+              MUSIC
+            </Link>
+            <Link href="/portfolio" className="hover:text-[#E5B868] transition-colors">
+              PORTFOLIO
+            </Link>
+            <Link href="/services" className="hover:text-[#E5B868] transition-colors">
+              SERVICES
+            </Link>
+            <Link href="/templates" className="hover:text-[#E5B868] transition-colors">
+              TEMPLATES
+            </Link>
 
-          {/* ✅ NEW - Press Kit Link 
-              Separated slightly to signal it is 
-              an industry/professional link      */}
-          <span className="text-white/20">|</span>
-          <Link
-            href="/epk"
-            className="hover:text-[#E5B868] transition-colors 
-                       text-white/40"
-          >
-            PRESS KIT
-          </Link>
+            {/* Press Kit: separated to signal an industry link */}
+            <span className="text-white/20">|</span>
+            <Link
+              href="/epk"
+              className="hover:text-[#E5B868] transition-colors 
+                         text-white/40"
+            >
+              PRESS KIT
+            </Link>
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
+            {secondaryLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="hover:text-[#E5B868] transition-colors">
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* ================================
@@ -89,6 +111,9 @@ export default function Footer() {
         </div>
 
       </div>
+      <p className="max-w-7xl mx-auto px-6 mt-8 text-center text-xs text-gray-600">
+        {siteDisclaimer}
+      </p>
     </footer>
   );
 }
