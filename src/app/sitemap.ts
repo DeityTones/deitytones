@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { siteUrl } from "@/lib/site"
+import { business } from "@/data/business"
 
 const routes = [
   "",
@@ -15,7 +16,7 @@ const routes = [
   "/epk",
   "/privacy",
   "/terms",
-]
+].filter((r) => business.legalPagesReady || (r !== "/privacy" && r !== "/terms"))
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({

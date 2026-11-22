@@ -48,8 +48,12 @@ export default function TemplatesPage() {
         </p>
         <p>
           <strong className="text-white">License:</strong> For use by you and your own business or roster. Templates
-          can&apos;t be resold, shared publicly or redistributed. See our{" "}
-          <Link href="/terms" className="text-[#E5B868] underline">Terms</Link>.
+          can&apos;t be resold, shared publicly or redistributed.
+          {business.legalPagesReady && (
+            <>
+              {" "}See our <Link href="/terms" className="text-[#E5B868] underline">Terms</Link>.
+            </>
+          )}
         </p>
       </div>
 

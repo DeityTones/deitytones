@@ -5,9 +5,9 @@ const secondaryLinks = [
   { href: "/how-it-works", label: "How It Works" },
   { href: "/faq", label: "FAQ" },
   { href: "/policies", label: "Policies" },
-  { href: "/privacy", label: "Privacy" },
-  { href: "/terms", label: "Terms" },
-];
+  { href: "/privacy", label: "Privacy", legal: true },
+  { href: "/terms", label: "Terms", legal: true },
+].filter((link) => !link.legal || business.legalPagesReady);
 
 export default function Footer() {
   return (

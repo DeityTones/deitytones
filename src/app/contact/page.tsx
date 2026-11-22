@@ -257,8 +257,14 @@ export default function ContactPage() {
                     <label className="flex items-start gap-3 text-sm text-white/80">
                       <input type="checkbox" name="consent" value="Yes" required className="accent-[#E5B868] w-4 h-4 mt-0.5" />
                       <span>
-                        I agree to be contacted about my inquiry and have read the{" "}
-                        <Link href="/privacy" className="text-[#E5B868] underline">Privacy Policy</Link>. *
+                        I agree to be contacted about my inquiry
+                        {business.legalPagesReady && (
+                          <>
+                            {" "}and have read the{" "}
+                            <Link href="/privacy" className="text-[#E5B868] underline">Privacy Policy</Link>
+                          </>
+                        )}
+                        . *
                       </span>
                     </label>
 

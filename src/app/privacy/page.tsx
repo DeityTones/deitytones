@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation"
 import { business } from "@/data/business"
 import { PageShell, PageHeader, Prose } from "@/components/ui"
 
@@ -9,6 +10,8 @@ import { PageShell, PageHeader, Prose } from "@/components/ui"
 // ============================================
 
 export default function PrivacyPage() {
+  if (!business.legalPagesReady) notFound()
+
   return (
     <PageShell>
       <PageHeader label="Legal" title="Privacy Policy" subtitle={`Last updated: ${business.legalLastUpdated}`} />

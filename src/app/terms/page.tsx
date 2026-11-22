@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation"
 import Link from "next/link"
 import { business, formationDisclaimer } from "@/data/business"
 import { PageShell, PageHeader, Prose } from "@/components/ui"
@@ -9,6 +10,8 @@ import { PageShell, PageHeader, Prose } from "@/components/ui"
 // ============================================
 
 export default function TermsPage() {
+  if (!business.legalPagesReady) notFound()
+
   return (
     <PageShell>
       <PageHeader label="Legal" title="Terms of Service" subtitle={`Last updated: ${business.legalLastUpdated}`} />
