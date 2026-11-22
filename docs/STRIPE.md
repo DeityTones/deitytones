@@ -37,7 +37,7 @@ Stripe Dashboard → Developers → Webhooks → **Add destination**:
 - URL: `https://<preview-or-live-domain>/api/stripe/webhook`
 - Events: `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed`, `invoice.paid`, `charge.dispute.created`
 
-Copy its signing secret into `STRIPE_WEBHOOK_SECRET`. Paid orders show in Vercel → Logs (search `[stripe]`). Webhooks are required: Stripe sends them even when a client closes the tab before the thank-you page.
+Copy its signing secret into `STRIPE_WEBHOOK_SECRET`. Vercel locks preview sites by default (Settings → Deployment Protection → Vercel Authentication), which also blocks Stripe: turn it off while testing on a preview and back on afterwards. Paid orders show in Vercel → Logs (search `[stripe]`). Webhooks are required: Stripe sends them even when a client closes the tab before the thank-you page.
 
 ## 4. Test a payment
 
